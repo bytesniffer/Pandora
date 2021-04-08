@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  node:
+    restart: always
+    build: .
+    ports:
+      - 10003:10003
+    networks:
+      - pandora-network
+    depends_on:
+      - mysql
+
+  mysql:
+    restart: always
+    image: mysql:8.0
+    container_name: mysql
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    networks:
+      - pandora-network
+    ports:
+      - 3306:3306
+    volumes:
+      - /Users/rudy/mysql/data:/var/lib/mysql
+      - /Users/rudy/mysql/conf.d:/etc/conf.d
+      # 数据库还原目录 可将需要还原的sql文件放在这里
+      - ./databak:/docker-entrypoint-initdb.d
+    environment:
+      - "MYSQL_ROOT_PASSWORD=123456"
+      - "TZ=Asia/Shanghai"
+#     - "MYSQL_DATABASE=doracms"
+
+networks:
+   pandora-network:
+     driver: bridge

@@ -45,11 +45,11 @@ module.exports = appInfo => {
         //配置mysql信息
         sequelize: {
             dialect: 'mysql',
-            host: '127.0.0.1', // 本地
+            host: 'mysql', // 本地 mysql 是docker name
             port: 3306,
             database: 'doracms', //mysql database dir
             username: "root",
-            password: "doramart520",
+            password: "123456",
             delegate: 'model'
         },
         static: {
