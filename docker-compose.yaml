@@ -3,7 +3,7 @@ version: '2'
 services:
   node:
     restart: always
-    build: .
+    image: pandora
     ports:
       - 10003:10003
     networks:

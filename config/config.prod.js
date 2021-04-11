@@ -13,8 +13,8 @@ module.exports = appInfo => {
         },
         sequelize: {
             dialect: 'mysql',
-            host: '127.0.0.1',
-            port: 26987,
+            host: '192.168.1.181',
+            port: 3306,
             database: 'doracms', //mysql database dir
             username: "root",
             password: "123456",
@@ -23,16 +23,16 @@ module.exports = appInfo => {
         // 静态目录
         static: {
             prefix: '/static',
-            dir: [path.join(appInfo.baseDir, 'app/public'), path.join(appInfo.baseDir, 'backstage/dist'), '/home/doraData/uploadFiles/static'],
+            dir: [path.join(appInfo.baseDir, 'app/public'), path.join(appInfo.baseDir, 'backstage/dist'), '/Users/rudy/doraData/uploadFiles/static'],
             maxAge: 31536000,
         },
         // 日志路径
         logger: {
-            dir: '/home/doraData/logsdir/doracms-sql',
+            dir: '/Users/rudy/doraData/logsdir/doracms-sql',
         },
         // 服务地址配置
-        server_path: 'https://sql.html-js.cn',
-        server_api: 'https://sql.html-js.cn/api',
+        server_path: 'http://127.0.0.1:10003',
+        server_api: 'http://127.0.0.1:10003/api',
 
     }
 };

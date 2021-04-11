@@ -5,13 +5,13 @@ const isDocker = process.env.BUILD_ENV == 'docker' ? true : false;
 module.exports = appInfo => {
 
     return {
-        admin_root_path: 'http://localhost',
+        admin_root_path: 'http://127.0.0.1',
         // DEV_CONFIG_MODULES_BEGIN
         dev_modules: [
             // 'navbar',
             // 'dashboard',
             // 'adminGroup',
-            // 'adminUser',
+//             'adminUser',
             // 'adminResource',
             // 'systemConfig',
             // 'backUpData',
@@ -45,7 +45,7 @@ module.exports = appInfo => {
         //配置mysql信息
         sequelize: {
             dialect: 'mysql',
-            host: 'mysql', // 本地 mysql 是docker name
+            host: '192.168.1.181', // 本地 mysql 是docker name
             port: 3306,
             database: 'doracms', //mysql database dir
             username: "root",
