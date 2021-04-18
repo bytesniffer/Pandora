@@ -23,12 +23,12 @@ module.exports = appInfo => {
         // 静态目录
         static: {
             prefix: '/static',
-            dir: [path.join(appInfo.baseDir, 'app/public'), path.join(appInfo.baseDir, 'backstage/dist'), '/Users/rudy/doraData/uploadFiles/static'],
+            dir: [path.join(appInfo.baseDir, 'app/public'), path.join(appInfo.baseDir, 'backstage/dist'), '/home/doraData/uploadFiles/static'],
             maxAge: 31536000,
         },
         // 日志路径
         logger: {
-            dir: '/Users/rudy/doraData/logsdir/doracms-sql',
+            dir: '/home/doraData/logsdir/doracms-sql',
         },
         // 服务地址配置
         server_path: 'http://127.0.0.1:10003',
