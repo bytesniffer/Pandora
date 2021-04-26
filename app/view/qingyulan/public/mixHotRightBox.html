@@ -1,0 +1,39 @@
+{% recommend key="mrecommend",pageSize=10 %}
+{% hot key="hotItemListData","pageSize"=9 %}
+<div class="side-tab">
+    <ul id="sidetab">
+        <li class="sidetab-current">站长推荐</li>
+        <li>点击排行</li>
+    </ul>
+    <div id="sidetab-content">
+        <section>
+            <div class="tuijian">
+                <section class="topnews imgscale"><a href="{{mrecommend[0].url}}"><img
+                            src="{{mrecommend[0].sImg}}"><span>{{mrecommend[0].title}}</span></a></section>
+                <ul>
+                    {% for item in mrecommend %}
+                    {% if loop.index0 > 0 %}
+                    <li><a href="{{item.url}}" title="{{item.title}}" target="_blank"><i><img src="{{item.sImg}}"></i>
+                            <p>{{item.title}}</p>
+                        </a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <section>
+            <div class="paihang">
+                <section class="topnews imgscale"><a href="/xd/23.html"><img
+                            src="{{hotItemListData[0].sImg}}"><span>{{hotItemListData[0].title}}</span></a></section>
+
+                <ul>
+                    {% for item in hotItemListData %}
+                    {% if loop.index0 > 0 %}
+                    <li><i></i><a href="{{item.url}}" title="{{item.title}}" target="_blank">{{item.title}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>

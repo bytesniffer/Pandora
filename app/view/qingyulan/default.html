@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% header adaptor="modernizr" %}
+
+    <!-- 模板静态资源 -->
+    {% assets 'base.css m.css main.js index.js swiper.min.css swiper.min.js banner.js' %}
+    {% endassets %}
+
+    <!-- 二次开发静态资源 -->
+    {% assets 'dora.front.js white.css' %}
+    {% endassets %}
+
+    {% endheader %}
+
+
+</head>
+
+
+<body>
+    <input type="hidden" value="{{lsk}}" id="sysKeys">
+    {% include "./public/header.html" %}
+    <div class="clear blank"></div>
+
+    <input type="hidden" value="{{site.lang}}" id="siteLang">
+    {% block content %}{% endblock %}
+
+    {% include "./public/footer.html" %}
+</body>
+
+</html>

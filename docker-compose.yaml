@@ -1,15 +1,15 @@
 version: '2'
 
 services:
-  node:
-    restart: always
-    image: pandora
-    ports:
-      - 10003:10003
-    networks:
-      - pandora-network
-    depends_on:
-      - mysql
+#  node:
+#    restart: always
+#    image: pandora
+#    ports:
+#      - 10003:10003
+#    networks:
+#      - pandora-network
+#    depends_on:
+#      - mysql
 
   mysql:
     restart: always

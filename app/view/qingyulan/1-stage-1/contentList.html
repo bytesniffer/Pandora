@@ -1,0 +1,35 @@
+{% extends "../default.html" %} {% block content %}
+{% assets "pagetab.js" %}
+{% endassets %}
+<article>
+    <div class="page whitebg">
+        <div class="page-title" id="pageContents">
+            {% for parentNav in currentCateList.parents %}
+            <ul>
+                {% for sonNav in currentCateList.cates %}
+                {% if sonNav.parentId == parentNav._id %}
+                {% if cateInfo._id == sonNav._id %}
+                {% set navClass = 'active'%}
+                {% else %}
+                {% set navClass = ''%}
+                {% endif %}
+                <li class="{{navClass}}">
+                    <a href="{{sonNav.url}}">{{sonNav.name}}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </div>
+        <div class="page-box">
+            {% if posts and posts.length>0 %}
+            {% set firstDocuments = posts[posts.length-1] %}
+            <h2 class="page-box-title">{{cateInfo.name}}</h2>
+            <div class="page-box-content">
+                {{firstDocuments.comments | safe}}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</article>
+{% endblock %}

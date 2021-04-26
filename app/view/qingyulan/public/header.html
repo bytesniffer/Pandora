@@ -1,0 +1,67 @@
+<header ms-controller="headerCtr">
+  <input type="hidden" value="{{userInfo._id}}" id="userId">
+  <input type="hidden" value="{{logined}}" id="logined">
+  <input type="hidden" value="{{tokenId}}" id="tokenId">
+  <div class="logo-section box">
+    <div class="search">
+      <!-- <form action="/e/search/index.php" method="post" name="searchform" id="searchform"> -->
+      <input name="keyboard" class="input_text" style="color: rgb(153, 153, 153);" ms-on-keyup="@onKeyUp"
+        ms-duplex="@searchkey" placeholder="{{__('lc_please_write_key')}}" type="text">
+      <input name="show" value="title" type="hidden">
+      <input name="tempid" value="1" type="hidden">
+      <input name="tbname" value="news" type="hidden">
+      <input name="Submit" class="input_submit" value="搜索" type="submit">
+      <!-- </form> -->
+    </div>
+    <div class="logo"><a href="/"><img src="{{site.logo}}"></a> </div>
+  </div>
+  <div class="clear"></div>
+  <div class="topnav">
+    <h2>DoraCMS</h2>
+    <nav>
+
+      <ul id="starlist">
+        <li><a href="/">网站首页</a></li>
+        {% navtree 'default' %}
+        {% for cate in navtree %}
+        {% if cate.children and cate.children.length>0 and cate.type == '1'%}
+        <li class="menu"><a href="{{cate.url}}">{{cate.name}}</a>
+
+          <ul class="sub">
+            {% for sonNav in cate.children %}
+            <li><a href="{{sonNav.url}}">{{sonNav.name}}</a></li>
+            {% endfor %}
+          </ul>
+          <span></span>
+
+        </li>
+        {% else %}
+        <li><a href="{{cate.url}}">{{cate.name}}</a></li>
+
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+    <h2 id="mnavh"><span class="navicon"></span></h2>
+  </div>
+  <div class="is-search">
+    <section><i></i>请输入关键字词</section>
+  </div>
+  <div class="search-page">
+    <div class="go-left"></div>
+    {% include "../mb/search-form.html" %}
+    <div class="clear"></div>
+    <div class="hot-search">
+      <p>热门搜索排行</p>
+      <ul class="search-paihang">
+        <li><a href="/"><i>1</i>doracms</a></li>
+      </ul>
+    </div>
+    <div class="new-search">
+      <p>最新搜索排行</p>
+      <ul class="search-paihang">
+        <li><a href=""><i>1</i>doracms</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

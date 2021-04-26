@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% header "mb" %}
+    <meta charset="utf-8">
+    <title>{{site.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endheader %}
+
+    {% assets "base.css m.css jquery-1.8.3.min.js endmenu.js" %}
+    {% endassets %}
+
+    {% assets "plugins/avalon.js/2.2.7/avalon.min.js plugins/layer/layer.js plugins/font-awesome/4.7.0/css/font-awesome.min.css" %}
+    {% endassets %}
+
+    {% assets 'dora.front.js white.css' %}
+    {% endassets %}
+
+</head>
+
+
+
+
+
+<input type="hidden" value="{{lsk}}" id="sysKeys">
+<input type="hidden" value="{{site.lang}}" id="siteLang">
+{% block content %}{% endblock %}
+
+
+
+
+</html>
