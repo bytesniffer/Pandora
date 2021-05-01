@@ -1,0 +1,55 @@
+{% extends "../default.html" %} {% block content %}
+
+<article>
+    <div class="blogs left-box">
+        {% if pageType != 'search' and pageType != 'tag' %}
+        {% if cateInfo.sImg %}
+        {% set cateImg = cateInfo.sImg %}
+        {% else %}
+        {% set cateImg = staticThemePath + '/images/newspic01.jpg' %}
+        {% endif %}
+        <div class="whitebg lanmu"> <i><img src="{{cateImg}}"></i>
+            <div class="middle-inner">
+                <h1>{{cateInfo.name}}</h1>
+                <p>{{cateInfo.comments}}</p>
+                <ul class="lanmu-keywords">
+                    {% set keywords = (cateInfo.keywords).split(',') %}
+                    {% for keyItem in keywords %}
+                    <li>{{keyItem}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="clear blank"></div>
+        {% endif %}
+
+        <div class="blogs-box whitebg">
+            <div class="news-title">
+                <h2>
+                    {{list_title}}
+                </h2>
+            </div>
+            {% include "../public/itemListTemp.html" %}
+
+        </div>
+    </div>
+    <aside class="side-section right-box">
+        {% include "../public/reCommendList.html" %}
+        <div class="blank clear"></div>
+        {% include "../public/hotNewsList.html" %}
+        <div class="blank clear"></div>
+        <div class="whitebg cloud">
+            {% hottags pageSize=20 %}
+            <h2 class="side-title">标签云</h2>
+            <ul>
+                {% for tagItem in hottags %}
+                <a href="{{tagItem.url}}" target="_blank">{{tagItem.name}}</a>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="ad ad-small">小图广告（320*140）</div>
+        {% include "../public/newItemList.html" %}
+    </aside>
+</article>
+<div class="clear blank"></div>
+{% endblock %}

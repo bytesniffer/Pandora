@@ -1,0 +1,18 @@
+<div class="blogs-list">
+	<ul>
+		{% for item in posts %}
+		<li>
+			<h2><a href="{{item.url}}">{{item.title}}</a></h2>
+			<i><a href="{{item.url}}"><img src="{{item.sImg}}"></a></i>
+
+			<p>{{item.discription | cutwords(200)}}</p>
+			<span>
+				{% for tagItem in item.tags %}
+				<a href="{{tagItem.url}}">{{tagItem.name}}</a>
+				{% endfor %}
+			</span>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+{% include "./pagination.html" %}

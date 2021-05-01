@@ -1,0 +1,16 @@
+<!--文章推荐模块-->
+{% random "pageSize"=12 %}
+<div class="otherlink whitebg">
+    <div class="news-title">
+        <h2>相关文章</h2>
+    </div>
+    <ul>
+        {% if random.length > 0 %} {% for item in random %}
+
+        <li><a target="_blank" href="{{item.url}}">{{item.title}}</a></li>
+
+        {% endfor %} {% else %}
+        <p class="text-center">暂无内容...</p>
+        {% endif%}
+    </ul>
+</div>

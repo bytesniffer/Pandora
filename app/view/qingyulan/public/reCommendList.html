@@ -1,0 +1,18 @@
+<!--文章推荐模块-->
+{% recommend key="reCommendList",pageSize=10 %}
+{% if reCommendList.length > 0 %}
+<div class="whitebg tuijian">
+    <h2 class="side-title">站长推荐</h2>
+    <section class="topnews imgscale"><a href="{{reCommendList[0].url}}"><img
+                src="{{reCommendList[0].sImg}}"><span>{{reCommendList[0].title}}</span></a></section>
+    <ul>
+        {% for item in reCommendList %}
+        {% if loop.index0 > 0 %}
+        <li><a href="{{item.url}}" title="{{item.title}}" target="_blank"><i><img src="{{item.sImg}}"></i>
+                <p> {{item.title}}</p>
+            </a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif%}

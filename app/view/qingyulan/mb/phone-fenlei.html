@@ -1,0 +1,30 @@
+﻿{% extends "./defaultPhoneTemp.html" %}{% block content %}
+
+<body>
+  <div class="fenlei-section">
+    <ul>
+      <li class="menu-t"><a href="/">网站首页</a></li>
+      {% navtree 'default' %}
+      {% for cate in navtree %}
+      <li class="menu-t"><a href="{{cate.url}}">{{cate.name}}</a>
+        {% if cate.children and cate.children.length>0 and cate.type == '1' %}
+
+        <ul class="menu-sub">
+          {% for sonNav in cate.children %}
+
+          <li><a href="{{sonNav.url}}">{{sonNav.name}}</a></li>
+
+          {% endfor %}
+        </ul>
+        {% else %}
+        {% endif %}
+      </li>
+
+      {% endfor %}
+
+    </ul>
+  </div>
+
+  {% include "./footer.html" %}
+</body>
+{% endblock %}

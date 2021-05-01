@@ -1,0 +1,122 @@
+{% extends "../default.html" %} {% block content %}{% import "../public/adsPannel.html" as adsPannel %}
+{% assets "side-tab.js" %}
+{% endassets %}
+<article>
+    <div class="left-box">
+        <div class="whitebg">
+            <div class="news-title"><span class="weizhi">您现在的位置是：<a href="/">首页</a>><a href="/">文档内容页</a></span>
+                <h2>文档详情</h2>
+            </div>
+            <div class="newstext-box">
+                <h1 class="news-title-h1">{{post.title}}</h1>
+                <div class="keywords">
+                    {% for tag in post.tags %}
+                    <a href="{{tag.url}}">{{tag.name}}</a>
+
+                    {% endfor %}
+                </div>
+                <div class="picview-other"> <span class="po-from">{% if post.uAuthor %}
+                        {{post.uAuthor.userName}} {% else %}
+                        {{post.author.userName}} {% endif %}</span><span class="po-date">{{post.updatedAt}}</span>
+                    {% set cateInfo = (post.categories[0]) %}
+                    <span class="po-classname"><a href="{{cateInfo.url}}"
+                            target="_blank">{{(post.categories[post.categories.length-1]).name}}</a></span><span
+                        class="po-view">{{post.clickNum}}</span> </div>
+                <div class="smalltext">
+                    <i></i>{{post.discription}}
+                </div>
+                <div class="newstext">
+                    {{post.comments | safe}}
+                </div>
+                <div class="diggit"><a href="JavaScript:devIng('{{post._id}}');">
+                        很赞哦！ </a>(<b id="diggnum"> {{post.likeNum}}
+                    </b>)</div>
+                <div class="clear"></div>
+                <div class="share"><img src="{{staticThemePath}}/images/wxgzh.jpg">
+                    <div class="share-text">
+                        <p>扫描关注DoraCMS QQ群，第一时间获取DoraCMS更新动态</p>
+                        <p>转载请说明来源于"{{site.title}}"</p>
+                        <p>本文地址：<a href="{{site.configs.siteDomain}}{{post.url}}"
+                                target="_blank">{{site.configs.siteDomain}}{{post.url}}</a></p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="info-pre-next">
+                    {% near_post "id"=post._id %}
+                    {% if near_post %}
+                    <ul>
+                        {% if near_post.preContent.title %}
+
+                        <li><a href="{{near_post.preContent.url}}"><i><em>{{__('lc_pre_document')}}</em><img
+                                        src="{{near_post.preContent.sImg}}"></i>
+                                <h2>{{near_post.preContent.title}}</h2>
+                                <p>{{near_post.preContent.discription}}</p>
+                            </a></li>
+                        {% endif %}
+                        {% if near_post.nextContent.title %}
+
+                        <li><a href="{{near_post.nextContent.url}}"><i><em>{{__('lc_next_document')}}</em><img
+                                        src="{{near_post.nextContent.sImg}}"></i>
+                                <h2>{{near_post.nextContent.title}}</h2>
+                                <p>{{near_post.nextContent.discription}}</p>
+                            </a></li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="clear blank"></div>
+
+        {% include "../public/randomList.html" %}
+
+        <div class="ad ad-big"> <a href="/" target="_blank"><img
+                    src="https://www.yangqq.com/d/file/p/2018-12-29/8793672fca8dae2ce093aa46546f8e22.gif"></a> </div>
+        <div class="pinglun-box whitebg" style="margin-bottom: 15px;">
+            <div class="news-title">
+                <h2>文章评论</h2>
+            </div>
+            <div class="pinglun">
+                <div id="plpost">
+                    {% if HOOK@messageBoard %}
+                    {{HOOK@messageBoard | safe}}
+                    {% else %}
+                    {% include "../public/msgBoard.html" %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="side-section right-box">
+        {% include "../public/mixHotRightBox.html" %}
+        {% ads name="detailLeft1" %}
+        <div class="ad ad-small">{{adsPannel.slider(detailLeft1)}}</div>
+        <div class="whitebg cloud">
+            {% hottags pageSize=20 %}
+            <h2 class="side-title">标签云</h2>
+            <ul>
+                {% for tagItem in hottags %}
+                <a href="{{tagItem.url}}" target="_blank">{{tagItem.name}}</a>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="clear blank"></div>
+        {% include "../public/newItemList.html" %}
+    </aside>
+</article>
+<script>
+    function devIng(id) {
+        // layer.msg('开发中，请稍后再玩...😈');
+        getAjaxData('/api/user/askContentThumbsUp?contentId=' + id, (data) => {
+            if (data.status == 200) {
+                var newNum = Number($('#diggnum').text()) + 1;
+                $('#diggnum').text(newNum);
+                layer.msg(data.message, {
+                    icon: 1,
+                    time: 800
+                });
+            }
+        })
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,224 @@
+{% extends "./default.html" %}{% block content %}{% import "./public/adsPannel.html" as adsPannel %}
+<article>
+  <!-- banner begin-->
+  <div class="banner">
+    {% ads name="recommend" %}
+    {{adsPannel.slider(recommend)}}
+  </div>
+  <!-- banner end-->
+  <!-- headline-boc begin-->
+  <div class="headline-box whitebg">
+    <div class="headline-news">
+      {% recommend key="reCommendListTop",pageSize=7 %}
+      {% if reCommendListTop.length > 0 %}
+      <h2 class="headline-news-title"><span>头条</span>
+        <a href="{{reCommendListTop[0].url}}">{{reCommendListTop[0].title}}</a>
+      </h2>
+      <p class="headline-news-smalltext">{{reCommendListTop[0].discription}}</p>
+
+      <ul class="headline-news-list">
+        {% for item in reCommendListTop%}
+        {% if loop.index0 > 0 %}
+        <li><a href="{{item.url}}" title="{{item.title}}">{{item.title}}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+  <!-- headline-box end-->
+  <div class="clear blank"></div>
+  <!-- tuijian-news begin-->
+  <div class="tuijian-news box whitebg tab-num01">
+    <div class="gd-box">
+      <ul id="tab">
+        <li class="tab-current">DoraCMS</li>
+        <li class="">前端开发</li>
+      </ul>
+    </div>
+    <div id="tab-content">
+
+      <section>
+        {% recommend key="tabContents",pageSize=7,"typeId"="6" %}
+        <div class="tuijian-news-pic"><i><a href="/"><img src="{{tabContents[0].sImg}}"><span>推荐</span></a></i>
+          <h2><a href="{{tabContents[0].url}}">{{tabContents[0].title}}</a></h2>
+          <p>{{tabContents[0].discription}}</p>
+          <a href="#" class="btn-blue-border">阅读更多</a>
+        </div>
+
+        <div class="tuijian-news-list">
+          <ul>
+            {% for contentItem in tabContents%}
+            {% if loop.index0 > 0 %}
+            <li><a target="_blank"
+                href="{{contentItem.url}}"><span><b>{{contentItem.createdAt | formatDateForMini('justdate')}}</b>{{contentItem.createdAt | formatDateForMini('month')}}</span>
+                <h3>{{contentItem.title}}</h3>
+                <p>{{contentItem.discription}}</p>
+              </a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        <span class="tab-a-more"><a href="/document___6" title="更多"><i></i><i></i><i></i></a></span>
+      </section>
+
+      <section>
+        {% recommend key="tabContents",pageSize=7,"typeId"="9" %}
+        <div class="tuijian-news-pic"><i><a href="/"><img src="{{tabContents[0].sImg}}"><span>推荐</span></a></i>
+          <h2><a href="{{tabContents[0].url}}">{{tabContents[0].title}}</a></h2>
+          <p>{{tabContents[0].discription}}</p>
+          <a href="#" class="btn-blue-border">阅读更多</a>
+        </div>
+
+        <div class="tuijian-news-list">
+          <ul>
+            {% for contentItem in tabContents%}
+            {% if loop.index0 > 0 %}
+            <li><a target="_blank"
+                href="{{contentItem.url}}"><span><b>{{contentItem.createdAt | formatDateForMini('justdate')}}</b>{{contentItem.createdAt | formatDateForMini('month')}}</span>
+                <h3>{{contentItem.title}}</h3>
+                <p>{{contentItem.discription}}</p>
+              </a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        <span class="tab-a-more"><a href="/front-development___9" title="更多"><i></i><i></i><i></i></a></span>
+      </section>
+
+    </div>
+  </div>
+  <!-- tuijian-news end-->
+  <div class="clear"></div>
+  {% ads name="indexTop1Left" %}
+  <div class="ad ad-big fl">
+    {{adsPannel.slider(indexTop1Left)}}
+  </div>
+  {% ads name="indexTop1Right" %}
+  <div class="ad ad-small fr">
+    {{adsPannel.slider(indexTop1Right)}}
+  </div>
+  <div class="clear"></div>
+  <div class="pics box whitebg tab-num02">
+    <div class="gd-box">
+      <ul id="tab">
+        {% childnav key="tabTwoTitle","pageSize"=10,"typeId"="9" %}
+        {% for cateItem in tabTwoTitle.cates %}
+        {% if cateItem.parentId != '0' %}
+        {% if loop.index0 == 0 %}
+        {% set currentClass = 'tab-current' %}
+        {% else %}
+        {% set currentClass = '' %}
+        {% endif %}
+        <li class="{{currentClass}}">{{cateItem.name}}</li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div id="tab-content">
+      {% for cateItem in tabTwoTitle.cates %}
+      {% if cateItem.parentId != '0' %}
+      <section>
+        {% news key="tabTwoContents","pageSize"=7,"typeId"=cateItem._id %}
+        <div class="pic-list-img">
+          <ul>
+            {% for contentItem in tabTwoContents %}
+            {% if loop.index0 == 0 %}
+            <li><a href="{{contentItem.url}}"><i><img style="height:100%;"
+                    src="{{contentItem.sImg}}"><em>推荐</em></i><span>{{contentItem.title}}</span></a></li>
+            {% else %}
+            <li><a href="{{contentItem.url}}"><i><img
+                    src="{{contentItem.sImg}}"></i><span>{{contentItem.title}}</span></a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        <span class="tab-a-more"><a href="{{cateItem.url}}" title="更多"><i></i><i></i><i></i></a></span></section>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <!-- pics end-->
+  <div class="clear blank"></div>
+  <div class="news box whitebg tab-num03">
+    <div class="gd-box">
+      <ul id="tab">
+        {% childnav key="tabThreeTitle","typeId"="6" %}
+        {% for cateItem in tabThreeTitle.cates %}
+        {% if cateItem.parentId != '0' %}
+        {% if loop.index0 == 0 %}
+        {% set currentClass = 'tab-current' %}
+        {% else %}
+        {% set currentClass = '' %}
+        {% endif %}
+        <li class="{{currentClass}}">{{cateItem.name}}</li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div id="tab-content">
+      {% for cateItem in tabThreeTitle.cates %}
+      {% if cateItem.parentId != '0' %}
+      <section>
+        {% news key="tabThreeContents","pageSize"=8,"typeId"=cateItem._id %}
+        <div class="news-zuixin">
+          <ul>
+            {% for contentItem in tabThreeContents %}
+            <li>
+              <section><a href="{{contentItem.url}}" class="news-zuixin-pic"><img src="{{contentItem.sImg}}"></a>
+                <h2><a href="{{contentItem.url}}">{{contentItem.title}}</a></h2>
+                <p>
+                  {{contentItem.discription}}
+                </p>
+                <span>
+                  {% for tag in contentItem.tags %}
+                  <a href="{{tag.url}}">{{tag.name}}</a>
+                  {% endfor %}
+                </span>
+              </section>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <span class="tab-a-more"><a href="{{cateItem.url}}" title="更多"><i></i><i></i><i></i></a></span>
+      </section>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <!-- news end-->
+  <div class="clear"></div>
+  {% ads name="indexTop2Left" %}
+  {% ads name="indexTop2Right" %}
+  <div class="ad ad-big fl">{{adsPannel.slider(indexTop2Left)}}</div>
+  <div class="ad ad-small fr">{{adsPannel.slider(indexTop2Right)}}</div>
+
+  <!-- videos end-->
+  <div class="clear"></div>
+
+  <div class="whitebg box tags">
+    <div class="news-title">
+      <h2>热门标签</h2>
+      <span class="tab-a-more"><a href="javascript:void(0)" title="更多"><i></i><i></i><i></i></a></span>
+    </div>
+    <ul>
+      {% hottags pageSize=20 %}
+      {% for tagItem in hottags %}
+      <a href="{{tagItem.url}}" target="_blank">{{tagItem.name}}</a>
+      {% endfor %}
+
+    </ul>
+  </div>
+  <!-- tags end-->
+  <div class="blank clear"></div>
+  <div class="links whitebg box ">
+    <div class="news-title">
+      <h2>友情链接</h2>
+    </div>
+    {% ads name="frendlink" %}
+    {{adsPannel.slider(frendlink)}}
+  </div>
+  <!-- links end-->
+  <div class="blank clear"></div>
+</article>
+{% endblock %}

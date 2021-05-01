@@ -1,0 +1,39 @@
+﻿{% extends "./defaultPhoneTemp.html" %}{% block content %}
+
+<body ms-controller="phoneUser">
+  <div class="user-box"><i class="avatar"><a href="javascript:void(0)" target="_blank"><img
+          ms-attr="{src: @logo}"></a></i>
+    <p ms-text="@userName">DanceSmile</p>
+    <em>普通会员</em>
+  </div>
+  <div class="user-section">
+    <ul>
+      <li><a href="javascript:void(0)">修改资料</a></li>
+      <!-- <li><a href="/">修改安全资料</a></li> -->
+      <span class="line"></span>
+
+      <li><a href="javascript:loginOut()">退出</a></li>
+    </ul>
+  </div>
+
+  <script>
+    // 请求用户信息
+    $.ajax({
+      type: "GET",
+      url: '/api/user/userInfo',
+      success: function (data) {
+        if (data.status === 200 && phoneUserVm) {
+          phoneUserVm.name = data.data.name || '';
+          phoneUserVm.userName = data.data.userName;
+          phoneUserVm.email = data.data.email;
+          phoneUserVm.phoneNum = data.data.phoneNum || '';
+          phoneUserVm.comments = data.data.comments;
+          phoneUserVm.logo = data.data.logo;
+        }
+      }
+    })
+  </script>
+
+  {% include "./footer.html" %}
+</body>
+{% endblock %}

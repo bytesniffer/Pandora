@@ -1,0 +1,94 @@
+<footer>
+    <div class="footer box">
+        <div class="wxbox">
+            <ul>
+                <li><img src="{{staticThemePath}}/images/wxgzh.jpg"><span>DoraCMS QQ群</span></li>
+                <li><img src="{{staticThemePath}}/images/wx.png"><span>我的微信</span></li>
+            </ul>
+        </div>
+        <div class="endnav">
+            <p><b>站点声明：</b></p>
+            <p>1、所有文章未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任。举报邮箱：<a
+                    href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=HHh9cn95b3F1cHVye1xtbTJ-c3E"
+                    target="_blank">doramart@qq.com</a></p>
+            <p>自豪的采用&nbsp;
+                <a href="https://github.com/doramart/DoraCMS" rel="nofollow" target="_blank" title="代码在这里">DoraCMS
+                    {{site.version}}
+                </a>&nbsp;Copyright (c) 2020 &nbsp;
+                <a href="http://www.beian.miit.gov.cn/" rel="nofollow" target="_blank">
+                    {{site.configs.registrationNo}}
+                </a> All Rights Reserved
+                <a href="/sitemap.html" target="_blank">{{__('lc_sitemap')}}</a></p>
+        </div>
+    </div>
+</footer>
+<div class="toolbar-open"></div>
+<div class="toolbar">
+    <div class="toolbar-close"><span id="closed"></span></div>
+    <div class="toolbar-nav">
+        <ul id="toolbar-menu">
+            <li ms-controller="userEmailLogin"><i class="side-icon-user"></i>
+                <section>
+                    <div class="userinfo">
+                        {% if logined == undefined %}
+                        <form name=login ms-validate="@validate">
+                            <small style="display:block" class="text-danger text-center" :visible="@showErr"
+                                ms-html="@message"></small>
+
+                            <!-- <input type=hidden name=enews value=login>
+                            <input type=hidden name=ecmsfrom value=9> -->
+                            <input type="text" class="inputText" size="16" type="email" class="form-control"
+                                name="email" ms-duplex="@email" placeholder="{{__('lc_write_email')}}"
+                                ms-rules="{required:true, pattern: /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/ }"
+                                data-required-message="{{__('lc_write_current_email')}}"
+                                data-message="{{__('lc_write_current_email')}}" />
+                            <input name="password" type="password" class="inputText" size="16"
+                                placeholder="{{__('lc_write_password')}}" ms-duplex="@password"
+                                ms-rules="{required: true,pattern: /(?!^\\d+$)(?!^[a-zA-Z]+$)(?!^[_#@]+$).{5,}/}"
+                                data-required-message="{{__('lc_write_current_password')}}"
+                                data-message="{{__('lc_write_current_password')}}" />
+                            <input type="submit" name="Submit" value="{{__('lc_confirm_login')}}" class="inputsub-dl" />
+                            <a href="/users/reg" class="inputsub-zc">注册</a>
+                        </form>
+                        {% else %}
+                        <!--登陆后状态-->
+                        <div class="clear"></div>
+                        <div class="logged">
+                            <b>{{userInfo.userName}}，您好！</b> <a href="/users/userCenter"
+                                target="_parent">{{__('lc_userCenter')}}</a> <a href="#"
+                                id="userLoginOut">{{__('lc_loginOut')}}</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </section>
+            </li>
+            <li><i class="side-icon-qq"></i>
+                <section class="qq-section">
+                    <div class="qqinfo"><a href="https://jq.qq.com/?_wv=1027&k=5EH6xZg">DoraCMS交流群①</a><a
+                            href="http://wpa.qq.com/msgrd?v=3&uin=305511094&site=qq&menu=yes">站长QQ</a></div>
+                </section>
+            </li>
+            <li><i class="side-icon-weixin"></i>
+                <section class="weixin-section">
+                    <div class="weixin-info">
+                        <p>个人微信扫码</p>
+                        <img src="{{staticThemePath}}/images/wx.png">
+                        <p class="text12">工作时间</p>
+                        <p class="text12">周一至周日 9:00-21:00</p>
+                    </div>
+                </section>
+            </li>
+            <li><i class="side-icon-dashang"></i>
+                <section class="dashang-section">
+                    <p>如果你觉得本站很棒，可以通过扫码支付打赏哦！</p>
+                    <ul>
+                        <li><img src="{{staticThemePath}}/images/weipayimg.jpg">微信收款码</li>
+                        <li><img src="{{staticThemePath}}/images/alipayimg.jpg">支付宝收款码</li>
+                    </ul>
+                </section>
+            </li>
+
+        </ul>
+    </div>
+</div>
+{% include "../mb/footer.html" %}

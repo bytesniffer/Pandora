@@ -1,0 +1,92 @@
+﻿{% extends "./defaultPhoneTemp.html" %}{% block content %}
+{% assets "main.js avalon-ms-pager.js" %}
+{% endassets %}
+<header>
+  <div class="logo-section box">
+    {% include "./search-form.html" %}
+    <div class="logo"><a href="#"><img src="images/logo.png">
+        <h2 class="logo-title">DoraCMS</h2>
+        <p class="logo-text">排名技术建站，让你对手追赶</p>
+      </a></div>
+  </div>
+  <div class="clear"></div>
+  <div class="topnav">
+    <h2>DoraCMS</h2>
+    <nav>
+      <ul id="starlist">
+        <li><a href="/">网站首页</a></li>
+        {% navtree 'default' %}
+        {% for cate in navtree %}
+        <li class="menu"><a href="{{cate.url}}">{{cate.name}}</a>
+          {% if cate.children and cate.children.length>0 and cate.type == '1' %}
+          <ul class="sub">
+            {% for sonNav in cate.children %}
+            <li><a href="{{sonNav.url}}">{{sonNav.name}}</a></li>
+            {% endfor %}
+          </ul>
+          <span></span>
+          {% endif %}
+        </li>
+        {% endfor %}
+
+      </ul>
+    </nav>
+    <h2 id="mnavh"><span class="navicon"></span></h2>
+  </div>
+  <div class="is-search">
+    <section><i></i>请输入关键字词</section>
+  </div>
+  <div class="search-page">
+    <div class="go-left"></div>
+    {% include "./search-form.html" %}
+    <div class="clear"></div>
+    <div class="hot-search">
+      <p>热门搜索排行</p>
+      <ul class="search-paihang">
+        <li><a href="/"><i>1</i>doracms</a></li>
+      </ul>
+    </div>
+    <div class="new-search">
+      <p>最新搜索排行</p>
+      <ul class="search-paihang">
+        <li><a href=""><i>1</i>doracms</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<body>
+  <div class="phone-list" ms-controller="phonelist">
+    <div :if="@myContentList.length == 0">
+      <div class="no-contents">
+        <div class="um-profile-note">
+          <i class="fa fa-frown-o"></i>
+          <span>{{__('lc_no_myDocument')}}</span>
+        </div>
+      </div>
+    </div>
+    <ul>
+      <div class="myContentList" :if="@myContentList.length > 0">
+        <div ms-for="(index,el) in @myContentList">
+          <li><a ms-attr="{href:el.url}"> <i><img ms-attr="{src: el.sImg}"></i>
+              <h2 ms-text="@el.title">{{item.title}}</h2>
+            </a></li>
+        </div>
+      </div>
+      <div class="text-center">
+        <wbr ms-widget="{is:'ms-pager', onPageClick: @contentPageClick, totalPages:@contentTotalPage}" /></div>
+      </div>
+    </ul>
+
+  </div>
+  <script>
+    $(function () {
+      if (phoneListVm) {
+        phoneListVm.contentPageClick('', 1);
+      }
+    })
+  </script>
+  {% include "./footer.html" %}
+</body>
+
+{% endblock %}
