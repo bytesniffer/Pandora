@@ -1,38 +1,30 @@
-{% extends "../default.html" %} {% block content %}
+{% extends "../default.html" %} {% block content %}{% import "../public/adsPannel.html" as adsPannel %}
 
 <article>
-    <div class="blogs left-box">
+    <div class="left-box">
+        <div class="weizhi ">您现在的位置是：<a href="/">首页</a>&nbsp;>&nbsp;
         {% if pageType != 'search' and pageType != 'tag' %}
-        {% if cateInfo.sImg %}
-        {% set cateImg = cateInfo.sImg %}
+        <a href="{{cateInfo.url}}">{{list_title}}</a>
         {% else %}
-        {% set cateImg = staticThemePath + '/images/newspic01.jpg' %}
+        {{list_title}}
         {% endif %}
-        <div class="whitebg lanmu"> <i><img src="{{cateImg}}"></i>
-            <div class="middle-inner">
-                <h1>{{cateInfo.name}}</h1>
+  			</div>
+        {% if pageType != 'search' and pageType != 'tag' %}
+          <div class="zhuanti"> <a href="javascript:;"> <span>分类</span><img
+                src="http://www.qupucha.com:8080/static/themes/hidora/picture/a5770eeddc893fcd0bc56dd615b2a1b1.png" alt="三维模型师的职业前景是怎样的？">
+              <section>
+                <h2>{{cateInfo.name}}</h2>
                 <p>{{cateInfo.comments}}</p>
-                <ul class="lanmu-keywords">
-                    {% set keywords = (cateInfo.keywords).split(',') %}
-                    {% for keyItem in keywords %}
-                    <li>{{keyItem}}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        <div class="clear blank"></div>
+              </section>
+            </a> </div>
         {% endif %}
-
-        <div class="blogs-box whitebg">
-            <div class="news-title">
-                <h2>
-                    {{list_title}}
-                </h2>
-            </div>
+        
+        <div class="blogs">         
             {% include "../public/itemListTemp.html" %}
-
-        </div>
+        </div> 
+       
     </div>
+         
     <aside class="side-section right-box">
         {% include "../public/reCommendList.html" %}
         <div class="blank clear"></div>
@@ -50,6 +42,6 @@
         <div class="ad ad-small">小图广告（320*140）</div>
         {% include "../public/newItemList.html" %}
     </aside>
-</article>
+</article>      
 <div class="clear blank"></div>
 {% endblock %}

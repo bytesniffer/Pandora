@@ -300,6 +300,7 @@ footer a:hover { color: #fff }
 .lanmu-keywords { margin-top: 10px; }
 .lanmu-keywords li { display: inline-block; color: #0976dc; border: #1487f4 1px solid; padding: 3px 10px; border-radius: 3px; margin-right: 5px; font-size: 12px; margin-bottom: 5px; }
 .lanmu-keywords li:hover, .lanmu-keywords li:nth-child(1) { background: #1487f4; color: #fff }
+/*         
 .blogs-list ul { padding: 0 20px 20px; }
 .blogs-list ul li {overflow: hidden;margin-bottom: 10px;border-bottom: 1px dashed #d3d3d3;padding-bottom: 20px;}
 .blogs-list li h2 { font-size: 18px; margin-top: 5px; font-weight: normal; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; margin-bottom: 10px; }
@@ -312,7 +313,42 @@ footer a:hover { color: #fff }
 .blogs-list li span { font-size: 14px; margin: 10px 0; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; height: 16px; line-height: 16px; }
 .blogs-list li span a { display: block; float: left; margin-right: 15px; position: relative; padding-left: 10px; color: #1487f4; }
 .blogs-list li span a:before { position: absolute; content: ""; width: 4px; height: 4px; border-radius: 4px; background: #0976dc; left: 0; top: 6px; }
-.blogs-list ul li:hover h2 a { color: #218af1; }
+.blogs-list ul li:hover h2 a { color: #218af1; }*/
+/*weizhi*/
+.left-box .weizhi { float: left;background: url(../images/icon_dizhi.png) no-repeat left -4px top; background-size: 20px; padding-left: 20px; font-size: 14px; color: #888; }
+.left-box .weizhi a { color: #888; margin: 0 5px; }
+.left-box .weizhi a:hover { color: #16499d; }
+           
+main { width: 1200px; margin: 30px auto 0; overflow: hidden; display:block}
+.lbox { width: 860px; float: left }      
+.blogs { margin-bottom: 30px; }
+.blogs_list { overflow: hidden; position: relative; transition: all .8s; padding: 20px 10px 20px 0; border-bottom: 1px dashed #e5e5e5; }
+.blogs_list i { display: block; width: 210px; height: 120px; background: #ccc; overflow: hidden; float: left; margin-right: 20px; }
+.blogs_list i img { width: 100%; min-height: 100%; transition: all .6s; }
+.blogs_list h2 { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-bottom: 6px; line-height: 28px; font-size: 16px; color: #333; }
+.blogs_list p { color: #737373; line-height: 20px; font-size: 14px; word-break: break-all; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2; }
+.blogs_writer { color: #333; margin: 0 5px 0 10px; font-size: 12px; position: absolute; left: 218px; bottom: 22px; }
+.blogs_writer span{display: inline}
+.blogs_time { color: #b3b2b2; position: relative; }
+.blogs_time:before { content: "·"; padding: 0 5px }
+.blogs_tags { float: right; position: absolute; right: 0; bottom: 15px; }
+.blogs_tags a { max-width: 72px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; margin: 5px 5px 0 0; padding: 1px 7px; height: 18px; color: #16499d; background: #d2e3fe; border-radius: 10px; line-height: 18px; font-size: 12px; }
+.blogs_tags a:hover { background: #16499d; color: #fff; }
+.blogs_lm { position: absolute; z-index: 2; top: 30px; left: 10px; padding: 0 12px; height: 20px; font-size: 12px;    background: rgba(3, 3, 3,.5); border-radius: 100px; line-height: 20px; }
+.blogs_lm a { color: #999; }
+.blogs_list:hover { box-shadow: 0px 12px 8px -12px #c0bebe; }
+.blogs_list:hover h2 { color: #16499d; }
+.blogs_list:hover img { transform: scale(1.1); }
+/*zhuanti*/
+.zhuanti { position: relative; border-bottom: 1px dashed #e5e5e5; padding: 20px 0 }
+.zhuanti a { display: block; overflow: hidden; transition: .5s }
+.zhuanti section { position: absolute; bottom: 30px }
+.zhuanti span { display: block; position: absolute; top: 30px; left: 10px; padding: 0 12px; height: 20px; font-size: 12px; background: rgba(62, 62, 62, 0.5); border-radius: 100px; line-height: 20px; z-index: 2; color: #999; }
+.zhuanti img { transition: .5s; width: 100% }
+.zhuanti h2 { margin-bottom: 15px; padding: 0 20px; color: #fff; font-size: 16px; }
+.zhuanti p { color: #fff; padding: 0 20px; font-size: 14px; line-height: 20px; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2; }
+.zhuanti:hover img { transform: scale(1.1); }
+             
 /*pagelist*/
 .pagelist { text-align: center; color: #666; width: 100%; clear: both; margin: 0 0 10px; }
 .pagelist a { color: #666; margin: 0 5px 10px; padding: 5px 10px; background: #F7F7F7; display: inline-block; }
@@ -331,6 +367,7 @@ a.curPage { color: #ffffff; font-weight: bold; background: #000; }
 .side-title:after { content: ""; position: absolute; width: 64px; height: 2px; content: ""; background: #000; left: 0; bottom: -1px; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease; }
 .side-title:hover:after { width: 80px; }
 .hnav, .weizhi { float: right }
+            
 .hnav a { display: block; margin-right: 10px; padding-right: 10px; float: left; position: relative }
 .hnav a:after { position: relative; content: "/"; right: -10px; bottom: 0; color: #ccc }
 .hnav a:last-child::after { content: "" }
@@ -415,7 +452,8 @@ span.mp-view { background: url(../images/view.png) no-repeat left center; }
 #sidetab-content section:nth-child(1) { display: block }
 /*newstext-box*/
 .newstext-box { padding: 0 20px 20px; }
-.news-title-h1 { font-size: 22px; }
+/*.news-title-h1 { font-size: 22px; margin-top: 10px}*/
+.newstext-box h1 { color: #333; font-size: 20px; margin: 30px 0 10px; }              
 .keywords { margin: 15px 0; overflow: hidden; }
 .keywords a { display: block; float: left; border: #1487f4 1px solid; color: #1487f4; padding: 2px 8px; margin-right: 5px; border-radius: 5px; }
 .keywords a:nth-child(1), .keywords a:hover { background: #1487f4; color: #fff }

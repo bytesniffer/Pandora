@@ -4,24 +4,25 @@
 <article>
     <div class="left-box">
         <div class="whitebg">
-            <div class="news-title"><span class="weizhi">您现在的位置是：<a href="/">首页</a>><a href="/">文档内容页</a></span>
-                <h2>文档详情</h2>
+            <div class="weizhi">您现在的位置是：<a href="index.html">首页</a>&nbsp;>&nbsp;<a
+                href="{{post.categories[post.categories.length-1].url}}">{{(post.categories[post.categories.length-1]).name}}</a>
             </div>
             <div class="newstext-box">
-                <h1 class="news-title-h1">{{post.title}}</h1>
-                <div class="keywords">
+                <h1>{{post.title}}</h1>
+                <!--<div class="keywords">
                     {% for tag in post.tags %}
                     <a href="{{tag.url}}">{{tag.name}}</a>
-
                     {% endfor %}
-                </div>
+                </div>-->
                 <div class="picview-other"> <span class="po-from">{% if post.uAuthor %}
                         {{post.uAuthor.userName}} {% else %}
                         {{post.author.userName}} {% endif %}</span><span class="po-date">{{post.updatedAt}}</span>
                     {% set cateInfo = (post.categories[0]) %}
-                    <span class="po-classname"><a href="{{cateInfo.url}}"
-                            target="_blank">{{(post.categories[post.categories.length-1]).name}}</a></span><span
-                        class="po-view">{{post.clickNum}}</span> </div>
+                     <!--<span class="po-classname">
+                      <a href="{{cateInfo.url}}" target="_blank">{{(post.categories[post.categories.length-1]).name}}</a>
+                     </span>-->
+                     <span class="po-view">{{post.clickNum}}</span> 
+                </div>
                 <div class="smalltext">
                     <i></i>{{post.discription}}
                 </div>
