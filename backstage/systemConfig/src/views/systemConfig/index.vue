@@ -135,7 +135,7 @@ export default {
           label: "腾讯企业邮箱"
         },
         {
-          value: "163",
+          value: "smtp.163.com",
           label: "163"
         }
       ],
