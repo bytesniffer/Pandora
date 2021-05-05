@@ -1,22 +1,26 @@
 {% extends "../default.html" %} {% block content %}{% import "../public/adsPannel.html" as adsPannel %}
 
 <article>
-    <div class="left-box">
-        <div class="weizhi ">您现在的位置是：<a href="/">首页</a>&nbsp;>&nbsp;
+    <div class="weizhi ">您现在的位置是：<a href="/">首页</a>&nbsp;>&nbsp;
         {% if pageType != 'search' and pageType != 'tag' %}
         <a href="{{cateInfo.url}}">{{list_title}}</a>
         {% else %}
         {{list_title}}
         {% endif %}
-  			</div>
+    </div>
+    <div class="left-box">
+        
+  			
         {% if pageType != 'search' and pageType != 'tag' %}
-          <div class="zhuanti"> <a href="javascript:;"> <span>分类</span><img
-                src="http://www.qupucha.com:8080/static/themes/hidora/picture/a5770eeddc893fcd0bc56dd615b2a1b1.png" alt="三维模型师的职业前景是怎样的？">
+          <div class="zhuanti">
+           <a href="javascript:;"> <span>分类</span>
+           <img src="http://104.128.94.107:8080/static/themes/hidora/picture/a5770eeddc893fcd0bc56dd615b2a1b1.png" alt="三维模型师的职业前景是怎样的？"/>
               <section>
                 <h2>{{cateInfo.name}}</h2>
                 <p>{{cateInfo.comments}}</p>
               </section>
-            </a> </div>
+           </a>
+           </div>
         {% endif %}
         
         <div class="blogs">         
@@ -42,6 +46,6 @@
         <div class="ad ad-small">小图广告（320*140）</div>
         {% include "../public/newItemList.html" %}
     </aside>
-</article>      
+</article>
 <div class="clear blank"></div>
 {% endblock %}

@@ -4,7 +4,7 @@
 		<h2>{{item.title}}</h2>
 		</a>
 		<p>{{item.discription}}</p>
-		<div class="blogs_writer">{{item.uAuthor.userName}}<span class="blogs_time">2020-10-18</span></div>
+		<div class="blogs_writer">{{item.uAuthor.userName}}<span class="blogs_time">{{item.updatedAt}}</span></div>
 		<div class="blogs_tags">
 			{% for tag in item.tags %}
             <a href="{{tag.url}}">{{tag.name}}</a>

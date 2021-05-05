@@ -265,6 +265,7 @@ module.exports = {
             pageData.themePublicPath = `../${defaultTemp.alias}/default.html`;
             await ctx.render(targetTempPage, pageData);
         } else {
+            console.log('----ctx.render.---', JSON.stringify(defaultTemp),'temp page:'+ targetTempPage);
             await ctx.render(defaultTemp.alias + '/' + targetTempPage, pageData);
         }
     }

@@ -315,12 +315,13 @@ footer a:hover { color: #fff }
 .blogs-list li span a:before { position: absolute; content: ""; width: 4px; height: 4px; border-radius: 4px; background: #0976dc; left: 0; top: 6px; }
 .blogs-list ul li:hover h2 a { color: #218af1; }*/
 /*weizhi*/
-.left-box .weizhi { float: left;background: url(../images/icon_dizhi.png) no-repeat left -4px top; background-size: 20px; padding-left: 20px; font-size: 14px; color: #888; }
-.left-box .weizhi a { color: #888; margin: 0 5px; }
-.left-box .weizhi a:hover { color: #16499d; }
-           
+         
+.weizhi { float: left;;width:100%;background: url(../images/icon_dizhi.png) no-repeat left -4px top; background-size: 20px; padding-left: 20px; font-size: 14px; color: #888; }
+.weizhi a { color: #888; margin: 0 5px; }
+.weizhi a:hover { color: #16499d; }
+         
 main { width: 1200px; margin: 30px auto 0; overflow: hidden; display:block}
-.lbox { width: 860px; float: left }      
+.lbox { width: 860px; float: left }
 .blogs { margin-bottom: 30px; }
 .blogs_list { overflow: hidden; position: relative; transition: all .8s; padding: 20px 10px 20px 0; border-bottom: 1px dashed #e5e5e5; }
 .blogs_list i { display: block; width: 210px; height: 120px; background: #ccc; overflow: hidden; float: left; margin-right: 20px; }
