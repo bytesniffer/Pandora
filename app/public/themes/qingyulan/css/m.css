@@ -220,9 +220,19 @@ article { margin-top: 30px }
 .qq_join li section { margin: 0; padding: 0; box-shadow: none; font-size: 12px; }
 .qq_join li p { margin: 0; padding-left: 5px; }
 .qq_join li img { width: 140px; height: 140px }
+/*                   
 .blogs-list ul li {padding-bottom: 0;}
 .blogs-list li i { width: 120px; height: 80px; }
-.blogs-list li h2 { font-size: 16px; white-space: inherit; overflow: hidden; margin-top: 0; }
+.blogs-list li h2 { font-size: 16px; white-space: inherit; overflow: hidden; margin-top: 0; }*/
+.blogs_list i { width: 96px; height: 67px; float: right; margin-right: 0; margin-left: 15px; }
+.blogs_lm, .blogs_tags, .blogs_list p, .zhuanti p { display: none }
+.blogs_writer { left: 0; bottom: 10px; margin: 0; color: #b3b2b2; }
+.blogs_list h2 { font-size: 14px; white-space: inherit; line-height: inherit; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2; }
+.blogs_list,.zhuanti { padding: 15px 0; border-bottom: #e9e9e9 1px solid; }
+.zhuanti a { height: 126px; overflow: hidden; display: block; }
+.zhuanti img { height: 100%; object-fit: cover; }
+.zhuanti h2 { font-size: 15px; }
+                   
 //footer { padding: 30px 0 70px }
 //.wxbox { width: 100%; text-align: center; margin-bottom: 20px }
 //.wxbox li { float: none; display: inline-block }
