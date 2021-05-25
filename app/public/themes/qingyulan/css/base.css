@@ -709,8 +709,8 @@ a.btn-add:hover { border-color: #F22D00; background: #F22D00; }
 .phone-list li { overflow: hidden; margin-bottom: 10px; display: table; width: 100%; border-bottom: #eee 1px solid; }
 .phone-list li a { display: block; overflow: hidden }
 .phone-list h2 { font-size: 16px; font-weight: normal; height: 60px; padding-bottom: 10px; display: table-cell; vertical-align: middle; }
-.phone-list i { width: 60px; height: 60px; float: right; margin-left: 10px; }
-.phone-list i img { width: auto; height: 100%; }
+.myContentList i { width: 60px; height: 60px; float: right; margin-left: 10px; }
+.myContentList i img { width: auto; height: 100%; }
 /*user-box*/
 .user-box { background: #1b82d1; overflow: hidden; padding: 20px; color: #c2def3; }
 .user-box p { font-size: 18px; margin-bottom: 20px }
