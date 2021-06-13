@@ -272,8 +272,8 @@ footer a:hover { color: #fff }
 .ft_contact li { margin-bottom: 15px; background-size: 20px !important; padding-left: 30px; }
 .ft_contact li:nth-child(1) { background: url(../images/icon_time.png) no-repeat }
 .ft_contact li:nth-child(2) { background: url(../images/icon_dizhi.png) no-repeat }
-.ft_contact li:nth-child(3) { background: url(../images/icon_tell.png) no-repeat }
-.ft_contact li:nth-child(4) { background: url(../images/icon_email.png) no-repeat }
+/*.ft_contact li:nth-child(3) { background: url(../images/icon_tell.png) no-repeat }*/
+.ft_contact li:nth-child(3) { background: url(../images/icon_email.png) no-repeat }
 .ft_contact:after, .ft_contact:before { content: ""; width: 1px; height: 100%; background: #363c49; position: absolute; top: 0 }
 .ft_contact:after { left: 1px; background: #010d27 }
 .ft_contact:before { left: 0 }

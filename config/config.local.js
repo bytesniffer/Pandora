@@ -45,7 +45,7 @@ module.exports = appInfo => {
         //配置mysql信息
         sequelize: {
             dialect: 'mysql',
-            host: '192.168.1.181', // 本地 mysql 是docker name
+            host: '192.168.0.104', // 本地 mysql 是docker name
             port: 3306,
             database: 'doracms', //mysql database dir
             username: "root",

@@ -14,7 +14,7 @@ class SystemConfigController extends Controller {
         let systemConfigList = await ctx.service.systemConfig.find({
             isPaging: '0'
         }, {
-            attributes: ['siteName', 'ogTitle', 'siteDomain', 'siteDiscription', 'siteKeywords', 'siteAltKeywords', 'registrationNo', 'showImgCode', 'statisticalCode', 'siteLogo']
+            attributes: ['siteName', 'ogTitle', 'siteDomain', 'siteDiscription', 'siteKeywords', 'siteAltKeywords', 'registrationNo','siteEmail', 'showImgCode', 'statisticalCode', 'siteLogo']
         });
         ctx.helper.renderSuccess(ctx, {
             data: systemConfigList[0]
