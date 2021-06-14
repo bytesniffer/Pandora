@@ -113,16 +113,27 @@ MIT
 
 ## 部署
 
-### Mysql install
+### Mysql 实例
 Mysql instance 
  ```
  mkdir -p /export/mysql8/data
  mkdir -p /export/mysql8/conf.d
  docker run -itd --name mysql -p 26987:3306 -v /export/mysql8/data:/var/lib/mysql -v /export/mysql8/conf.d:/etc/conf.d  -e MYSQL_ROOT_PASSWORD=123456 mysql:8.0
  ```
-初始化数据
+进入mysql,初始化数据
 ```
  source docracms.sql 
 ```
+
+### Pandora 实例
+```
+docker run -it -p 8080:8080 --net=bridge registry.cn-hangzhou.aliyuncs.com/ocean18/pandora sh
+修改config.prod.js 的 sequelize.host 为数据库地址
+修改config.prod.js erver_path/erver_api ip 为当前instance的IP 
+npm start 
+关闭ssh 
+```
+### 图标
+
 
 
