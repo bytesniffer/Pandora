@@ -111,4 +111,18 @@ http://127.0.0.1:10003/dr-admin
 
 MIT
 
+## 部署
+
+### Mysql install
+Mysql instance 
+ ```
+ mkdir -p /export/mysql8/data
+ mkdir -p /export/mysql8/conf.d
+ docker run -itd --name mysql -p 26987:3306 -v /export/mysql8/data:/var/lib/mysql -v /export/mysql8/conf.d:/etc/conf.d  -e MYSQL_ROOT_PASSWORD=123456 mysql:8.0
+ ```
+初始化数据
+```
+ source docracms.sql 
+```
+
 
