@@ -126,9 +126,14 @@ Mysql instance
 ```
 
 ### Pandora 实例
+#### 打包
+``` 
+docker build -t registry.cn-hangzhou.aliyuncs.com/ocean18/pandora  .
 
 ```
-docker run -it -p 8080:8080 --net=bridge registry.cn-hangzhou.aliyuncs.com/ocean18/pandora sh
+#### 运行
+``` 
+docker run -it -p 8080:8080 -v /export/doracms/upload:/app/app/public/upload --net=bridge registry.cn-hangzhou.aliyuncs.com/ocean18/pandora sh
 修改config.prod.js 的 sequelize.host 为数据库地址
 修改config.prod.js server_path/server_api ip 为当前instance的IP 
 npm start 
