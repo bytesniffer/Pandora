@@ -12,6 +12,7 @@ package-lock.json
 app/ext
 app/controller/ext
 *.iml
+app/public/upload/images
 
 
 

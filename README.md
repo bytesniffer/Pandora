@@ -126,10 +126,11 @@ Mysql instance
 ```
 
 ### Pandora 实例
+
 ```
 docker run -it -p 8080:8080 --net=bridge registry.cn-hangzhou.aliyuncs.com/ocean18/pandora sh
 修改config.prod.js 的 sequelize.host 为数据库地址
-修改config.prod.js erver_path/erver_api ip 为当前instance的IP 
+修改config.prod.js server_path/server_api ip 为当前instance的IP 
 npm start 
 关闭ssh 
 ```
