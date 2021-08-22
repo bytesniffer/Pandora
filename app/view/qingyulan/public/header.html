@@ -10,7 +10,7 @@
       <input name="show" value="title" type="hidden">
       <input name="tempid" value="1" type="hidden">
       <input name="tbname" value="news" type="hidden">
-      <input name="Submit" class="input_submit" value="搜索" type="submit">
+      <input name="Submit" class="input_submit" value="搜索" type="submit" ms-click="@searchOpt">
       <!-- </form> -->
     </div>
     <div class="logo"><a href="/"><img src="{{site.logo}}"></a> </div>
@@ -51,16 +51,16 @@
     <div class="go-left"></div>
     {% include "../mb/search-form.html" %}
     <div class="clear"></div>
-    <div class="hot-search">
-      <p>热门搜索排行</p>
-      <ul class="search-paihang">
-        <li><a href="/"><i>1</i>doracms</a></li>
-      </ul>
-    </div>
+<!--    <div class="hot-search">-->
+<!--      <p>热门搜索排行</p>-->
+<!--      <ul class="search-paihang">-->
+<!--        <li><a href="/"><i>1</i>doracms</a></li>-->
+<!--      </ul>-->
+<!--    </div>-->
     <div class="new-search">
       <p>最新搜索排行</p>
       <ul class="search-paihang">
-        <li><a href=""><i>1</i>doracms</a></li>
+        <li><a href="/search/李荣浩"><i>1</i>李荣浩</a></li>
       </ul>
     </div>
   </div>

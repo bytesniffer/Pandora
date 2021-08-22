@@ -483,7 +483,7 @@ exports._inc = async ({
                 !_.isEmpty(item) && item.increment([attr], {
                     by: Number(attrValue)
                 }).then(function (item) {
-                    console.log('success');
+                    console.log('Inc success');
                 })
             }
         }

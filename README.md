@@ -127,7 +127,9 @@ Mysql instance
 
 ### Pandora 实例
 #### 打包
+
 ``` 
+rm -rf node_modules
 docker build -t registry.cn-hangzhou.aliyuncs.com/ocean18/pandora  .
 
 ```

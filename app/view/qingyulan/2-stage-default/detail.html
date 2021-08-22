@@ -16,7 +16,7 @@
                 </div>-->
                 <div class="picview-other"> <span class="po-from">{% if post.uAuthor %}
                         {{post.uAuthor.userName}} {% else %}
-                        {{post.author.userName}} {% endif %}</span><span class="po-date">{{post.updatedAt}}</span>
+                        {{post.author.userName}} {% endif %}</span><span class="po-date">{{post.createdAt}}</span>
                     {% set cateInfo = (post.categories[0]) %}
                      <!--<span class="po-classname">
                       <a href="{{cateInfo.url}}" target="_blank">{{(post.categories[post.categories.length-1]).name}}</a>
@@ -76,7 +76,7 @@
                       -->
         <div class="pinglun-box whitebg" style="margin-bottom: 15px;">
             <div class="news-title">
-                <h2>文章评论</h2>
+                <h2>评论</h2>
             </div>
             <div class="pinglun">
                 <div id="plpost">
