@@ -66,7 +66,7 @@ export default {
       };
       if (this.basicInfo.loginLogs && this.basicInfo.loginLogs[0]) {
         logs = {
-          date: this.basicInfo.loginLogs[0].date,
+          date: this.basicInfo.loginLogs[0].createdAt,
           ip: this.basicInfo.loginLogs[0].logs.split(":")[1]
         };
       }

@@ -246,8 +246,7 @@ class AdminUserController extends Controller {
         });
       }
 
-      let reKey = new RegExp(ctx.session.adminUserInfo.userName, "i");
-
+      let reKey = ctx.session.adminUserInfo.userName;
       loginLogs = [];
       // TODO 作为插件需要优先判断是否存在
       if (!_.isEmpty(ctx.service.systemOptionLog)) {
@@ -301,7 +300,7 @@ class AdminUserController extends Controller {
         loginLogs,
         resources: newResources,
       };
-
+      // console.log('site basic info', JSON.stringify(renderBasicInfo),'op logs', loginLogs)
       ctx.helper.renderSuccess(ctx, {
         data: renderBasicInfo,
       });

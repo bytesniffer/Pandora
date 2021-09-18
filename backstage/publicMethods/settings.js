@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'DoraCMS Admin',
+  title: 'Gomeetu Admin',
 
   /**
    * @type {boolean} true | false
