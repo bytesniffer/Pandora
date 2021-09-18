@@ -38,6 +38,16 @@
             ></el-option>
           </el-select>
         </el-form-item>
+        <el-form-item :label="$t('ads.terminal')" prop="terminal">
+          <el-select v-model="formState.formData.terminal" placeholder="请选择终端类型">
+            <el-option
+              v-for="item in terminals"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item :label="$t('ads.upload')" prop="sImg">
           <el-upload
             class="avatar-uploader"
@@ -96,6 +106,11 @@ export default {
       linkTypeOpts: [
         { value: "0", label: "文章" },
         { value: "1", label: "链接" }
+      ],
+      terminals: [
+              { value: "ALL", label: "ALL" },
+              { value: "H5", label: "H5" },
+              { value: "PC", label: "PC" }
       ],
       rules1: {
         title: [

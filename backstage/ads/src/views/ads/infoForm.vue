@@ -59,12 +59,13 @@
               @click="showAdsItemForm"
             >{{$t('ads.addImgItem')}}</el-button>
             <div class="dr-ads-item" v-for="item in formState.formData.items" :key="item._id">
-              <div class="img">
+              <div class="img" style="margin:15px 0px">
                 <img :src="item.sImg" />
               </div>
               <div class="details">
                 <ul>
                   <li>{{$t('ads.imgAlt')}}：{{item.alt}}</li>
+                  <li>{{$t('ads.terminal')}}：{{item.terminal}}</li>
                   <li>{{$t('ads.imgLink')}}：{{item.link}}</li>
                 </ul>
               </div>

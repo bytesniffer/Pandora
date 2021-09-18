@@ -27,6 +27,7 @@ const state = {
     formData: {
       title: '',
       link: '',
+      terminal: 'ALL',
       appLink: '',
       appLinkType: '',
       width: '',
@@ -59,6 +60,7 @@ const mutations = {
     state.itemFormState.formData = Object.assign({
       title: '',
       link: '',
+      terminal: 'ALL',
       width: '',
       height: '',
       alt: '',

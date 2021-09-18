@@ -11,6 +11,7 @@ export default {
     link: "链接",
     appLink: "app链接",
     appLinkType: "app链接类型",
+    terminal: "终端类型",
     upload: "上传",
     textContent: "文字内容",
     enable: "有效",

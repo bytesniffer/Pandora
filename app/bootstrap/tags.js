@@ -90,8 +90,11 @@ const _renderContentCtx = async (appCtx, context, args, actionType) => {
     if (queryObj) {
         _.assign(payload, queryObj);
     }
-
-    // console.log(actionType, '--payload--', payload)
+    let terminal  = _ctx['ctx']['request']['header']['user-agent'].search('Mobile') != -1 ? 'H5':'PC';
+    if (terminal) {
+        payload.terminal = terminal;
+    }
+    console.log(actionType, '--payload--', payload)
     apiData = await appCtx.helper.reqJsonData(api, payload);
     context.ctx[key] = apiData;
 

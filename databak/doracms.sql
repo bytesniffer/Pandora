@@ -1184,3 +1184,5 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2020-11-09 23:03:30
+-- update ads item
+ALTER TABLE doracms_ads_items add terminal varchar(50) DEFAULT NULL;
