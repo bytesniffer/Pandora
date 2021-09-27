@@ -430,7 +430,6 @@ global.HeaderExtension = function () {
         metaArr.push(`<script src="${_ctx.staticRootPath}/plugins/layer/layer.js?version=${_ctx.site.version}"></script>`);
         metaArr.push(`<script src="${_ctx.staticRootPath}/themes/users/js/dora.front.js?version=${_ctx.site.version}"></script>\n`);
         // site statistics
-        metaArr.push(`<script src="https://v1.cnzz.com/z_stat.php?id=1279901695&web_id=1279901695" type="hidden"></script>\n`)
         metaArr.push(`<link rel="stylesheet" href="${_ctx.staticRootPath}/plugins/layer/theme/default/layer.css">`);
 
         if (params.adaptor == 'ie') {
