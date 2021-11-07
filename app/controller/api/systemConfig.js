@@ -22,6 +22,7 @@ class SystemConfigController extends Controller {
           'siteDiscription',
           'siteKeywords',
           'siteAltKeywords',
+          'siteEmail',
           'registrationNo',
           'showImgCode',
           'statisticalCode',

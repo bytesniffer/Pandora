@@ -297,10 +297,10 @@ export default {
             trigger: 'blur',
           },
           {
-            min: 5,
+            min: 2,
             max: 100,
             message: this.$t('validate.ranglengthandnormal', {
-              min: 5,
+              min: 2,
               max: 100,
             }),
             trigger: 'blur',

@@ -357,8 +357,8 @@ export default {
         initialFrameHeight: 320
       },
       editorConfig: {
-        // 编辑器不自动被内容撑高
-        autoHeightEnabled: false,
+        // 编辑器自动被内容撑高
+        autoHeightEnabled: true,
         // 初始容器高度
         initialFrameHeight: 600,
         // 初始容器宽度

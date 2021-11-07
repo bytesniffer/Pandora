@@ -7,20 +7,20 @@ module.exports = (appInfo) => {
     // DEV_CONFIG_MODULES_BEGIN
     dev_modules: [
       // 'navbar',
-      // 'dashboard',
+//       'dashboard',
       // 'adminGroup',
       // 'adminUser',
       // 'adminResource',
-      // 'systemConfig',
+//       'systemConfig',
       // 'backUpData',
       // 'systemOptionLog',
       // 'announce',
       // 'systemNotify',
-      // 'ads',
+//       'ads',
       // 'contentTemp',
       // 'templateConfig',
       // 'versionManage',
-      // 'content',
+//       'content',
       // 'contentTags',
       // 'contentCategory',
       // 'contentMessage',
@@ -42,9 +42,9 @@ module.exports = (appInfo) => {
     },
     // 配置mysql信息
     sequelize: {
-      dialect: 'mariadb',
-      host: '192.168.31.102', // 本地
-      port: 3307, // 本地
+      dialect: 'mysql',
+      host: '192.168.0.104', // 本地
+      port: 3306, // 本地
       database: 'doracms', // mysql database dir
       username: 'root',
       password: '123456',

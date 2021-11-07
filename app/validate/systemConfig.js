@@ -21,7 +21,7 @@ const form = (ctx) => {
     siteName: {
       type: 'string',
       required: true,
-      min: 5,
+      min: 2,
       max: 100,
       message: ctx.__('validate_inputCorrect', [
         ctx.__('label_sysconfig_site_name'),

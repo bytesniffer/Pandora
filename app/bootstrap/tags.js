@@ -362,61 +362,6 @@ global.near_post = function (appCtx) {
 
 // 头部
 global.HeaderExtension = function () {
-<<<<<<< HEAD
-    this.tags = ['header'];
-
-    this.parse = function (parser, nodes) {
-        const tok = parser.nextToken(); // Get the tag token
-
-        // Parse the args and move after the block end.
-        const args = parser.parseSignature(null, true);
-        parser.advanceAfterBlockEnd(tok.value);
-
-        // Parse the body
-        const body = parser.parseUntilBlocks('header', 'endheader');
-        parser.advanceAfterBlockEnd();
-
-        // Actually do work on block body and arguments
-        return new nodes.CallExtension(this, 'run', args, [body]);
-    };
-
-    this.run = function (context, args, bodyCallback) {
-        const params = !_.isEmpty(args) ? args : {};
-        let _ctx = context.ctx;
-        const rawCode = bodyCallback ? bodyCallback() : '';
-        let metaArr = [];
-
-        metaArr.push(`<meta charset="utf-8">`);
-        metaArr.push(`<title>${_ctx.site.title}</title>`);
-        metaArr.push(`<meta name="viewport" content="width=device-width, initial-scale=1">`);
-        metaArr.push(`<meta name="description" content="${_ctx.site.discription}">`);
-        metaArr.push(`<meta content="${_ctx.site.key}" name="keywords" />`);
-        metaArr.push(`<meta property="og:type" content="website" />`);
-        metaArr.push(`<meta property="og:title" content="${_ctx.site.title}" />`);
-        metaArr.push(`<meta property="og:description" content="${_ctx.site.discription}" />`);
-        metaArr.push(`<meta property="og:image" content="${_ctx.ogData.img}">`);
-        metaArr.push(`<meta property="og:url" content="${_ctx.ogData.url}">`);
-        metaArr.push(`<meta name="author" content="DoraCMS">`);
-
-        // 默认插件支持
-        metaArr.push(`<script src="${_ctx.staticRootPath}/plugins/avalon.js/2.2.7/avalon.min.js?version=${_ctx.site.version}"></script>`);
-        metaArr.push(`<script src="${_ctx.staticRootPath}/plugins/jquery/1.10.2/jquery.min.js?version=${_ctx.site.version}"></script>`);
-        metaArr.push(`<script src="${_ctx.staticRootPath}/plugins/layer/layer.js?version=${_ctx.site.version}"></script>`);
-        metaArr.push(`<script src="${_ctx.staticRootPath}/themes/users/js/dora.front.js?version=${_ctx.site.version}"></script>\n`);
-        // site statistics
-        metaArr.push(`<link rel="stylesheet" href="${_ctx.staticRootPath}/plugins/layer/theme/default/layer.css">`);
-
-        if (params.adaptor == 'ie') {
-            metaArr.push(`<!--[if lt IE 9]>`);
-            metaArr.push(`<script src="${_ctx.staticRootPath}/plugins/html5shiv/3.7.2/html5shiv.min.js"></script>`);
-            metaArr.push(`<script src="${_ctx.staticRootPath}/plugins/respond.js/1.4.2/respond.min.js"></script>`);
-            metaArr.push(`<script src="${_ctx.staticRootPath}/plugins/json3/3.3.2/json3.min.js"></script>`);
-            metaArr.push(`<script src="${_ctx.staticRootPath}/plugins/promise/promise.js"></script>`);
-            metaArr.push(`<![endif]-->`);
-        } else if (params.adaptor == 'modernizr') {
-            metaArr.push(`<script src="${_ctx.staticRootPath}/plugins/modernizr/modernizr.js"></script>`);
-        }
-=======
   this.tags = ['header'];
 
   this.parse = function (parser, nodes) {
@@ -480,7 +425,6 @@ global.HeaderExtension = function () {
         `<script type="text/javascript" src="${_ctx.staticRootPath}/plugins/modernizr/modernizr.js"></script>`
       );
     }
->>>>>>> 2.1.8-dev
 
     if (_ctx.site.router === 'users') {
       metaArr.push(

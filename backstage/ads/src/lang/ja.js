@@ -22,6 +22,7 @@ export default {
     imgLink: '链接',
     textList: '链接列表',
     addTextLink: '添加链接',
+    terminal: "终端类型",
   },
   // LangEnd
 };

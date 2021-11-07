@@ -20,6 +20,7 @@ export default {
     imgLink: 'Pics Links',
     textList: 'Links List',
     addTextLink: 'Add New Link',
+    terminal: "Terminal",
   },
   // LangEnd
 };
