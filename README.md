@@ -1,22 +1,34 @@
-# Pandora CMS-SQL 
+# Pandora 2.1.8
+
+#### 更新内容：
+- 服务端代码加入 eslint 校验，并通过 Prettier 格式化（使用 vscode 需要安装对应的插件）
+- 修复用户中心分页样式不正确的问题
+- 修复使用 ueditor 编辑时，通过剪切板粘贴图片不能上传到cdn的问题
+- 添加了markdown 编辑器
+- 后台管理添加了选项卡切换
+- 修复了广告管理中，添加轮播图广告报错的问题
+- 删除了多余的适配文件，不再兼容低版本IE
+- 后台管理添加了 io 通知，关键操作会通知到管理员
+- 修复找回密码链接跳转不正常的问题
+- 为了真正的拥抱开源，从这个版本开始，Pandora 默认使用 Mariadb 数据库，如果您使用的是 mysql，可能需要对数据库文件进行适当处理
 
 ![DoraCMS](https://ae01.alicdn.com/kf/H114ba4fd0eab4f36a4b16d970e11222dz.png "DoraCMS")
 
 
 ## Pandora CMS 视频简介
 
-[DoraCMS 视频简介](https://www.bilibili.com/video/av77251776/)  
+[Pandora CMS 视频简介](https://www.bilibili.com/video/av77251776/)  
 
 
 
 ## 说明
 
-### DoraCMS 使用的技术栈：
+### Pandora CMS 使用的技术栈：
 
 ```
 1、nodejs 12 + eggjs 2
 2、vue-cli
-3、mariadb 10 / mysql 8
+3、mariadb 10 
 ```
 
 文档： [Pandora CMS 开发文档](https://www.doracms.com)  
@@ -26,7 +38,7 @@ API： [Pandora CMS API文档](https://www.html-js.cn/static/apidoc/index.html)
 后台登录： https://sql.html-js.cn/dr-admin  
 测试账号：doracms/123456  
 
-### Pandora CMS 安装：
+### DoraCMS 安装：
 
 **创建项目需要的数据库，登录 MySQL 创建数据库**
 
@@ -46,7 +58,7 @@ show databases;
 use doracms;
 ```
 
-**导入SQL文件，生成数据库表，SQL 文件在 Pandora CMS 的 databak 目录，**
+**导入SQL文件，生成数据库表，SQL 文件在 DoraCMS 的 databak 目录，**
 
 > 目录改成，自己的 doracms.sql 文件目录
 
@@ -64,12 +76,12 @@ npm i --registry=https://registry.npm.taobao.org
 > /app/config/config.local.js
 
 ```
-// 配置mysql信息
+// 配置 mariadb 信息
 sequelize: {
-    dialect: 'mysql'，
+    dialect: 'mariadb'，
     host: '127.0.0.1'， // 本地
     port: 3306，
-    database: 'doracms'， //mysql database dir
+    database: 'doracms'， //mariadb database dir
     username: "root"，
     password: "123456"，
     delegate: 'model'

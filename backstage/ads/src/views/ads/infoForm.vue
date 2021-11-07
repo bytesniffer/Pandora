@@ -204,6 +204,7 @@ export default {
                   type: "success"
                 });
                 this.$router.push(this.$root.adminBasePath + "/ads");
+                this.$store.dispatch("ads/getAdsList");
               } else {
                 this.$message.error(result.message);
               }
@@ -217,6 +218,7 @@ export default {
                   type: "success"
                 });
                 this.$router.push(this.$root.adminBasePath + "/ads");
+                this.$store.dispatch("ads/getAdsList");
               } else {
                 this.$message.error(result.message);
               }
