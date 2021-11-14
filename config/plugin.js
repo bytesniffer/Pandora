@@ -35,6 +35,7 @@ exports.validate = {
 exports.doraUploadFile = {
   enable: true,
   package: 'egg-doras-uploadfile',
+  path: path.join(__dirname, '../lib/plugin/egg-doras-uploadfile'),
 };
 // // PLUGIN_NORMALPLUGIN_BEGIN
 
