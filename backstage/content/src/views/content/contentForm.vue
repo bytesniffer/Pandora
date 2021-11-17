@@ -71,19 +71,24 @@
               <el-col :span="24" style="margin-top: 15px">
                 <div class="grid-content bg-purple">
                   <vue-ueditor-wrap
-                    v-if="editorState === '1'"
+                    v-if="editorState === '0'"
                     class="editorForm"
                     @ready="editorReady"
                     v-model="formState.formData.comments"
                     :config="editorConfig"
                   ></vue-ueditor-wrap>
-
                   <markdown-editor
                     v-else-if="editorState === '2'"
                     v-model="formState.formData.markDownComments"
                     height="800px"
                     @change="changeMdEditor"
                   />
+                  <wang-editor
+                      v-else-if="editorState === '1'"
+                      v-model="formState.formData.comments"
+                      height="800px"
+                      @change="changeWEditor"
+                   />
                 </div>
               </el-col>
             </el-row>
@@ -753,8 +758,8 @@ export default {
               { content_type: this.editorState },
               this.editorState === '1'
                 ? {
-                    comments: this.ueditorObj.getContent(),
-                    simpleComments: this.ueditorObj.getPlainTxt()
+                    comments: this.ueditorObj.html,
+                    simpleComments: this.ueditorObj.text
                   }
                 : {
                     mdEditorHtml: this.mdEditorHtml
@@ -814,6 +819,10 @@ export default {
     },
     changeMdEditor(render) {
       render && (this.mdEditorHtml = render);
+    },
+    changeWEditor(wang) {
+        console.log('content:',wang.html,'txt:',wang.text,'instance',wang);
+        this.ueditorObj = wang;
     }
   },
   computed: {

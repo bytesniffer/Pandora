@@ -98,11 +98,11 @@
               prop="editorType"
             >
               <el-radio v-model="systemConfig.configs.editorType" label="2"
-                >Markdown</el-radio
-              >
+                >Markdown</el-radio>
               <el-radio v-model="systemConfig.configs.editorType" label="1"
-                >Html</el-radio
-              >
+                >Html</el-radio>
+              <el-radio v-model="systemConfig.configs.editorType" label="3"
+                >Html(wang)</el-radio>
             </el-form-item>
             <el-form-item
               :label="$t('sysTemConfigs.email_server')"

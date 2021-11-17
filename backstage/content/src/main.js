@@ -17,12 +17,16 @@ import singleSpaVue from 'dora-single-spa';
 import './icons'; // icon
 import i18n from './lang'; // Internationalization
 import * as filters from './filters'; // global filters
+import VueWangEditor from 'vue-wangeditor-awesome';
 
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI, {
   size: Cookies.get('size') || 'medium', // set element-ui default size
   i18n: (key, value) => i18n.t(key, value),
+});
+Vue.use(VueWangEditor, {
+  directiveName: 'wangEditor'
 });
 
 // register global utility filters
