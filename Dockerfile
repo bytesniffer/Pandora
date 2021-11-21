@@ -7,9 +7,10 @@ ENV PORT=8080
 WORKDIR /app
 COPY . /app
 
-RUN ls -l /usr/lib/node_modules
-RUN npm install --registry=https://registry.npm.taobao.org
-RUN npm install mammoth node-schedule --registry=https://registry.npm.taobao.org
+RUN ls -l /app
+RUN npm install -g cnpm --registry=https://registry.npmmirror.com
+RUN cnpm install
+RUN cnpm install mammoth node-schedule
 
 EXPOSE ${PORT}
 

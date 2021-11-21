@@ -13,7 +13,7 @@ module.exports = (appInfo) => {
     sequelize: {
       dialect: 'mysql',
       host: '127.0.0.1',
-      port: 3307,
+      port: 26987,
       database: 'doracms', // mysql database dir
       username: 'root',
       password: '123456',
