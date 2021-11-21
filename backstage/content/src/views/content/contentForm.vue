@@ -80,14 +80,14 @@
                   <markdown-editor
                     v-else-if="editorState === '2'"
                     v-model="formState.formData.markDownComments"
-                    height="800px"
+                    height="600"
                     @change="changeMdEditor"
                   />
                   <wang-editor
                       v-else-if="editorState === '3'"
                       :options = weditorConfig
                       v-model="formState.formData.comments"
-                      height="800px"
+                      height="600"
                       @change="changeWEditor"
                    />
                 </div>
@@ -377,8 +377,7 @@ export default {
       weditorConfig: {
          uploadImgServer: '/api/upload/weditor',
          uploadFileName: 'upfile',
-         pasteFilterStyle: false,
-         height: 600
+         pasteFilterStyle: false
       },
       imageUrl: '',
       categoryProps: {
