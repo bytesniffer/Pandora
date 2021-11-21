@@ -71,7 +71,7 @@
               <el-col :span="24" style="margin-top: 15px">
                 <div class="grid-content bg-purple">
                   <vue-ueditor-wrap
-                    v-if="editorState === '0'"
+                    v-if="editorState === '1'"
                     class="editorForm"
                     @ready="editorReady"
                     v-model="formState.formData.comments"
@@ -84,7 +84,8 @@
                     @change="changeMdEditor"
                   />
                   <wang-editor
-                      v-else-if="editorState === '1'"
+                      v-else-if="editorState === '3'"
+                      :options = weditorConfig
                       v-model="formState.formData.comments"
                       height="800px"
                       @change="changeWEditor"
@@ -372,6 +373,12 @@ export default {
         serverUrl: '/api/upload/ueditor',
         // UEditor 资源文件的存放路径，如果你使用的是 vue-cli 生成的项目，通常不需要设置该选项，vue-ueditor-wrap 会自动处理常见的情况，如果需要特殊配置，参考下方的常见问题2
         UEDITOR_HOME_URL: this.$root.staticRootPath + '/plugins/ueditor/'
+      },
+      weditorConfig: {
+         uploadImgServer: '/api/upload/weditor',
+         uploadFileName: 'upfile',
+         pasteFilterStyle: false,
+         height: 600
       },
       imageUrl: '',
       categoryProps: {
@@ -756,14 +763,7 @@ export default {
             let params = Object.assign(
               this.formState.formData,
               { content_type: this.editorState },
-              this.editorState === '1'
-                ? {
-                    comments: this.ueditorObj.html,
-                    simpleComments: this.ueditorObj.text
-                  }
-                : {
-                    mdEditorHtml: this.mdEditorHtml
-                  }
+                this.getEditorContent(this.editorState)
             );
             // 上传合成图片
             if (this.formState.formData.sImgType == '1') {
@@ -817,12 +817,30 @@ export default {
         }
       });
     },
+    getEditorContent(editorType) {
+        if(editorType === '1') {
+           return {
+                comments: this.ueditorObj.getContent(),
+                simpleComments: this.ueditorObj.getPlainTxt()
+            }
+        } else if(editorType === '2') {
+           return {
+                mdEditorHtml: this.mdEditorHtml
+            }
+        } else if(editorType === '3') {
+            return {
+                comments: this.ueditorObj.html,
+                simpleComments: this.ueditorObj.text
+            }
+        }
+    },
     changeMdEditor(render) {
       render && (this.mdEditorHtml = render);
     },
-    changeWEditor(wang) {
-        console.log('content:',wang.html,'txt:',wang.text,'instance',wang);
-        this.ueditorObj = wang;
+    changeWEditor(editor) {
+        console.log('content:',editor.html,'txt:',editor.text,'instance',editor);
+        this.ueditorObj = editor;
+        console.log('config:',editor.wang.config)
     }
   },
   computed: {

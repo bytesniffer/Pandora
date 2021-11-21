@@ -146,6 +146,7 @@ module.exports = (appInfo) => {
         (ctx) => ctx.path.startsWith('/manage/uploadFile'),
         (ctx) => ctx.path.startsWith('/api/upload/files'),
         (ctx) => ctx.path.startsWith('/api/upload/ueditor'),
+        (ctx) => ctx.path.startsWith('/api/upload/weditor'),
         (ctx) => ctx.path.startsWith('/api/upload/filePath'),
       ],
     },
