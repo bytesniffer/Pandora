@@ -122,15 +122,22 @@ http://127.0.0.1:10003/dr-admin
 # LICENSE
 
 MIT
-
+## 开发环境
+### 启动本地数据库
+```
+ docker-compose up 
+```
+### 配置config
+```
+sequelize.host 本地ip地址
+```
 ## 部署
-
 ### Mysql 实例
 Mysql instance 
  ```
  mkdir -p /export/mysql8/data
  mkdir -p /export/mysql8/conf.d
- docker run -itd --name mysql -p 26987:3306 -v /export/mysql8/data:/var/lib/mysql -v /export/mysql8/conf.d:/etc/conf.d  -e MYSQL_ROOT_PASSWORD=123456 mysql:8.0
+ docker run -itd --name mysql_n -p 26987:3306 -v /export/mysql8/data:/var/lib/mysql -v /export/mysql8/conf.d:/etc/conf.d  -e MYSQL_ROOT_PASSWORD=123456 -e TZ=Asia/Shanghai mysql:8.0
  ```
 进入mysql,初始化数据
 ```

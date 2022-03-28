@@ -83,11 +83,7 @@
 
       <el-table-column prop="clickNum" :label="$t('contents.clickNum')" show-overflow-tooltip></el-table-column>
       <el-table-column prop="commentNum" :label="$t('contents.commentNum')" show-overflow-tooltip></el-table-column>
-      <el-table-column prop="state" :label="$t('contents.enable')" show-overflow-tooltip>
-        <template slot-scope="scope">
-          <svg-icon v-show="scope.row.state=='2'" :style="green" icon-class="check-circle-fill" />
-          <svg-icon v-show="scope.row.state!='2'" :style="red" icon-class="minus-circle-fill" />
-        </template>
+      <el-table-column prop="state" :label="$t('contents.enable')" :formatter=stateFormatter show-overflow-tooltip>
       </el-table-column>
 
       <el-table-column :label="$t('main.dataTableOptions')" min-width="150" fixed="right">
@@ -146,10 +142,23 @@ export default {
       },
       green: { color: "#13CE66" },
       red: { color: "#FF4949" },
+      states:[
+      { value: '0', label: '草稿' },
+      { value: '1', label: '待审核' },
+      { value: '2', label: '已发布' },
+      { value: '3', label: '审核不通过' },
+      { value: '4', label: '审核通过' },
+      { value: '5', label: '下架' }
+      ]
     };
   },
 
   methods: {
+    stateFormatter(row, column) {
+      const state = row[column.property]
+      console.log(state+':'+this.states[state])
+      return this.states[state].label;
+    },
     handleContentSelectionChange(val) {
       if (val && val.length > 0) {
         let ids = val.map((item, index) => {

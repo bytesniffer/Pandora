@@ -16994,13 +16994,45 @@ UE.plugins['fiximgclick'] = (function () {
                 }
             },
             updateTargetElement: function () {
+//                var me = this;
+//                domUtils.setStyles(me.target, {
+//                    'width': me.resizer.style.width,
+//                    'height': me.resizer.style.height
+//                });
+//                me.target.width = parseInt(me.resizer.style.width);
+//                me.target.height = parseInt(me.resizer.style.height);
+//                me.attachTo(me.target);
+//                var me = this;
+//                var newWidth = parseInt(me.resizer.style.width);
+//                // var newHeight = parseInt(me.resizer.style.height);
+//                var oldHeight = parseInt(me.target.naturalHeight);
+//                var oldWidth = parseInt(me.target.naturalWidth);
+//                var c =(oldHeight*newWidth)/oldWidth;
+//                domUtils.setStyles(me.target, {
+//                'width': me.resizer.style.width,
+//                'height': c+'px'
+//                });
+                // var scale = parseInt(me.target.height)/parseInt(me.target.width);
+                // me.target.width = parseInt(me.resizer.style.width);
+                // me.target.height = parseInt(me.target.width)*scale;
+                // me.target.width = parseInt(me.resizer.style.width);
+                // me.target.height = parseInt(me.resizer.style.height);
+//                me.attachTo(me.target);
                 var me = this;
+                var newWidth = parseInt(me.resizer.style.width);
+                // var newHeight = parseInt(me.resizer.style.height);
+                var oldHeight = parseInt(me.target.naturalHeight);
+                var oldWidth = parseInt(me.target.naturalWidth);
+                var c =(oldHeight*newWidth)/oldWidth;
                 domUtils.setStyles(me.target, {
-                    'width': me.resizer.style.width,
-                    'height': me.resizer.style.height
+                'width': me.resizer.style.width,
+                'height': c+'px'
                 });
-                me.target.width = parseInt(me.resizer.style.width);
-                me.target.height = parseInt(me.resizer.style.height);
+//                   var scale = parseInt(me.target.height)/parseInt(me.target.width);
+//                   me.target.width = parseInt(me.resizer.style.width);
+//                   me.target.height = parseInt(me.target.width)*scale;
+//                   me.target.width = parseInt(me.resizer.style.width);
+//                   me.target.height = parseInt(me.resizer.style.height);
                 me.attachTo(me.target);
             },
             updateContainerStyle: function (dir, offset) {

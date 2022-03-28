@@ -61,7 +61,7 @@
             <li ms-controller="userEmailLogin"><i class="side-icon-user"></i>
                 <section>
                     <div class="userinfo">
-                        {% if logined == undefined %}
+                        {% if logined == undefined or logined == false %}
                         <form name=login ms-validate="@validate">
                             <small style="display:block" class="text-danger text-center" :visible="@showErr"
                                 ms-html="@message"></small>
@@ -80,6 +80,10 @@
                                 data-message="{{__('lc_write_current_password')}}" />
                             <input type="submit" name="Submit" value="{{__('lc_confirm_login')}}" class="inputsub-dl" />
                             <a href="/users/reg" class="inputsub-zc">注册</a>
+                            <div class="clear"></div>
+                            <p class="forget-psd" style="align:right;margin-top:30px">
+                                <a href="/users/confirmEmail " target="_blank ">{{__('label_resetpwd_forget')}}？</a>
+                            </p>
                         </form>
                         {% else %}
                         <!--登陆后状态-->

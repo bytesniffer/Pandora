@@ -72,7 +72,7 @@
         </div>
 
         <div class="dr-select-box">
-          <el-select size="small" @change="changePostOptions" v-model="authPost" placeholder="请选择">
+          <el-select size="small" @change="changePostOptions" v-model="authPost" placeholder="选择文章状态">
             <el-option
               v-for="item in authPostOptions"
               :key="item.value"
@@ -100,17 +100,16 @@ export default {
       loading: false,
       selectUserList: [],
       searchkey: "",
-      authPost: "0",
+      authPost: "",
       categories: "",
       authPostOptions: [
-        {
-          value: "0",
-          label: "全部",
-        },
-        {
-          value: "1",
-          label: "待审核",
-        },
+          { value: '-1', label: '全部' },
+          { value: '0', label: '草稿' },
+          { value: '1', label: '待审核' },
+          { value: '2', label: '已发布' },
+          { value: '3', label: '审核不通过' },
+          { value: '4', label: '审核通过' },
+          { value: '5', label: '下架' },
       ],
       categoryProps: {
         value: "_id",
@@ -237,10 +236,10 @@ export default {
       this.$store.dispatch("content/getContentList", { uAuthor: value });
     },
     changePostOptions(value) {
-      if (value == "0") {
+      if (value == "-1") {
         this.$store.dispatch("content/getContentList");
-      } else if (value == "1") {
-        this.$store.dispatch("content/getContentList", { state: "1" });
+      } else {
+        this.$store.dispatch("content/getContentList", { state: value });
       }
     },
     // TOPBARLEFTOPTION

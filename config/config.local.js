@@ -20,7 +20,7 @@ module.exports = (appInfo) => {
       // 'contentTemp',
       // 'templateConfig',
       // 'versionManage',
-//       'content',
+       'content',
       // 'contentTags',
       // 'contentCategory',
       // 'contentMessage',
@@ -43,7 +43,7 @@ module.exports = (appInfo) => {
     // 配置mysql信息
     sequelize: {
       dialect: 'mysql',
-      host: '192.168.0.104', // 本地
+      host: '192.168.0.103', // 本地
       port: 3306, // 本地
       database: 'doracms', // mysql database dir
       username: 'root',

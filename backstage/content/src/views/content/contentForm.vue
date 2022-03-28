@@ -345,10 +345,12 @@ export default {
       sidebarOpened: true,
       device: 'desktop',
       contentState: [
-        { value: '0', label: '退回' },
+        { value: '0', label: '草稿' },
         { value: '1', label: '待审核' },
-        { value: '2', label: '审核通过' },
-        { value: '3', label: '审核不通过' }
+        { value: '2', label: '已发布' },
+        { value: '3', label: '审核不通过' },
+        { value: '4', label: '审核通过' },
+        { value: '5', label: '下架' }
       ],
       selectUserList: [],
       loading: false,

@@ -16,6 +16,9 @@ app/controller/ext
 app/public/upload/images
 databak/
 dist/*
+backstage/*/dist
+backstage/*/node_modules
+
 
 
 

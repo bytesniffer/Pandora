@@ -402,6 +402,9 @@ global.HeaderExtension = function () {
     metaArr.push(`<meta property="og:image" content="${_ctx.ogData.img}">`);
     metaArr.push(`<meta property="og:url" content="${_ctx.ogData.url}">`);
     metaArr.push('<meta name="author" content="DoraCMS">');
+    //## TODO clean
+//    metaArr.push('<meta name="sogou_site_verification" content="wpb7WrburW"/>');
+//    metaArr.push('<meta name="google-site-verification" content="v9j3L2MX7D6JvAyuGEQ9JYXLeT0SsNMoyrhRdJ4ydVc" />');
 
     // 默认插件支持
     metaArr.push(
@@ -433,6 +436,9 @@ global.HeaderExtension = function () {
       metaArr.push(
         `<link rel="stylesheet" href="${_ctx.staticRootPath}/plugins/twitter-bootstrap/3.3.5/css/bootstrap.min.css?version=${_ctx.site.version}">\n`
       );
+       metaArr.push(
+              `<script type="text/javascript" src="${_ctx.staticRootPath}/plugins/twitter-bootstrap/3.3.5/js/bootstrap.min.js?version=${_ctx.site.version}"></script>\n`
+            );
       metaArr.push(
         `<link rel="stylesheet" href="${_ctx.staticRootPath}/themes/users/css/white.css?version=${_ctx.site.version}">\n`
       );

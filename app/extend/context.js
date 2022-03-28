@@ -110,6 +110,7 @@ module.exports = {
     } else {
       pageData.logined = false;
     }
+    console.log("login state:", pageData.logined,'user info:',pageData.userInfo)
     // 静态目录
     if (!_.isEmpty(defaultTemp)) {
       pageData.staticforder = defaultTemp.alias;

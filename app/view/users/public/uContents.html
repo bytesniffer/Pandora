@@ -1,6 +1,5 @@
 <h2 class="page-box-title">{{__('lc_myDocument')}}</h2>
 <div class="page-box-content" ms-controller="my-contents">
-
     <div :if="@myContentList.length == 0">
         <div class="no-contents">
             <div class="um-profile-note">
@@ -9,20 +8,37 @@
             </div>
         </div>
     </div>
+
     <div class="myContentList" :if="@myContentList.length > 0">
         <div ms-for="(index,el) in @myContentList">
             <div class="discription ">
                 <h2 class="post-title ">
                     <a ms-visible="@el.state=='2'" ms-attr="{href:el.url}" target="_blank " ms-text="@el.title"></a>
                     <a ms-visible="@el.state != '2'" ms-text="@el.title"></a>
-                    <div class="contentState">
-                        <span ms-visible="@el.state == '0'" style="font-weight:normal;"><a target="_blank"
-                                ms-attr="{href:'/users/editContent/'+ @el._id}">{{__('lc_content_state_draft')}}</a></span>
-                        <span style="color:orange;" ms-visible="@el.state == '1'">{{__('lc_content_state_wait')}}</span>
-                        <span style="color:green;"
-                            ms-visible="@el.state == '2'">{{__('lc_content_state_publish')}}</span>
-                        <span style="color:red;" ms-visible="@el.state == '3'">{{__('lc_content_state_failed')}}</span>
+                    <div class="contentState" >
+                        <span style="color:gray;display:inline-block" ms-visible="@el.state == '0'" style="font-weight:normal;">{{__('lc_content_state_draft')}}</span>
+                        <span style="color:orange;display:inline-block" ms-visible="@el.state == '1'">{{__('lc_content_state_wait')}}</span>
+                        <span style="color:green;display:inline-block"
+                              ms-visible="@el.state == '2'">{{__('lc_content_state_publish')}}</span>
+                        <span style="color:green;display:inline-block"
+                              ms-visible="@el.state == '4'">{{__('lc_content_state_audit_success')}}</span>
+                        <span style="color:green;display:inline-block"
+                              ms-visible="@el.state == '5'">{{__('lc_content_state_offline')}}</span>
+                        <span style="color:red;display:inline-block" ms-visible="@el.state == '3'">{{__('lc_content_state_failed')}}</span>
+                        <div class="btn-group" style="display:inline-block;margin-left:30px">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                操作<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a  target="_blank" ms-attr="{href:'/users/editContent/'+ @el._id}">编辑</a></li>
+                                <li><a href="#">预览</a></li>
+                                <li><a href="#">撤回</a></li>
+                                <li><a href="#">发布</a></li>
+                                <li><a href="#">下架</a></li>
+                            </ul>
+                        </div>
                     </div>
+
                 </h2>
                 <div class="post-content" ms-html="@el.discription"></div>
                 <ul class="post-meta ">
@@ -49,6 +65,7 @@
 
 </div>
 <script>
+     var actions = [];
     // 获取用户投稿列表
     getUserRelevantList('/content/getUserContents', 'myContents', 1, {
         userId: $('#userId').val(),
