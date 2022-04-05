@@ -17018,6 +17018,7 @@ UE.plugins['fiximgclick'] = (function () {
                 // me.target.width = parseInt(me.resizer.style.width);
                 // me.target.height = parseInt(me.resizer.style.height);
 //                me.attachTo(me.target);
+
                 var me = this;
                 var newWidth = parseInt(me.resizer.style.width);
                 // var newHeight = parseInt(me.resizer.style.height);
