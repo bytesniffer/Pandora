@@ -544,13 +544,24 @@ var myContentsVm = avalon.define({
     myContentList: [],
     myMessageList: [],
     myJoinTopicsList: [],
+    searchkey: '',
+    postOptions: [
+      { value: '-1', label: '全部状态' },
+      { value: '0', label: '草稿' },
+      { value: '1', label: '待审核' },
+      { value: '2', label: '已发布' },
+      { value: '3', label: '审核不通过' },
+      { value: '4', label: '审核通过' },
+      { value: '5', label: '已下架' }
+    ],
+    selectedState:'-1',
     contentTotalPage: 1,
     messageTotalPage: 1,
     joinTopicsTotalPage: 1,
     contentPageClick: function (e, cur) {
         getUserRelevantList('/content/getUserContents', 'myContents', cur, {
             userId: $('#userId').val(),
-            listState: 'all'
+            listState: myContentsVm.selectedState
         })
     },
     messagePageClick: function (e, cur) {
@@ -593,8 +604,59 @@ var myContentsVm = avalon.define({
                 })
             }
         })
-    }
-})
+    },
+    selectStateOnChange: function(event) {
+              console.log("Selected state:"+myContentsVm.selectedState+',value:'+JSON.stringify(event.target.value));
+              var state = event.target.value
+              myContentsVm.selectedState = state
+              getUserRelevantList('/content/getUserContents', 'myContents', 1, {
+                    userId: $('#userId').val(),
+                    listState: state,
+                    searchkey: myContentsVm.searchkey
+              })
+    },
+    transferContentState: function(el, newState) {
+      console.log("item click:"+JSON.stringify(el)+',payload:'+JSON.stringify({id:el.id,state:newState,expectedState:el.state}));
+      getAjaxData('/api/content/transferContentState', (data) => {
+          if (data.status == 200) {
+              layer.msg(getSysValueByKey('sys_layer_option_success'), {
+                  icon: 1,
+                  time: 1,
+                  time: msgTime
+              }, function () {
+                  getUserRelevantList('/content/getUserContents', 'myContents', 1, {
+                      userId: $('#userId').val(),
+                      listState: myContentsVm.selectedState,
+                      searchkey: myContentsVm.searchkey
+                 })
+              });
+          }
+      }, 'post',{id:el.id,state:newState,expectedState:el.state})
+    },
+    showReason: function(el) {
+        layer.confirm(getSysValueByKey('sys_layer_confirm_delete'), {
+                title: getSysValueByKey('sys_layer_confirm_title'),
+                btn: getSysValueByKey('sys_layer_confirm_btn_yes'),
+                content: el.dismissReason,
+                yes: function (index) {
+                    layer.close(index);
+                }
+            })
+    },
+    onKeyUp: function (e) {
+        if (e && e.keyCode === 13) {
+            myContentsVm.searchClick()
+        }
+    },
+    searchClick: function () {
+        console.log("search click:state:"+myContentsVm.selectedState+',key:'+myContentsVm.searchkey);
+        getUserRelevantList('/content/getUserContents', 'myContents', 1, {
+                              userId: $('#userId').val(),
+                              listState: myContentsVm.selectedState,
+                              searchkey: myContentsVm.searchkey
+        })
+    },
+ })
 
 /**
  * 

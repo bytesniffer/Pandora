@@ -48,6 +48,14 @@ export function updateContent(data) {
   });
 }
 
+export function transferContentState(data) {
+  return request({
+    url: '/manage/content/transferContentState',
+    data,
+    method: 'post',
+  });
+}
+
 export function updateManyContent(data) {
   return request({
     url: '/manage/content/updateContents',

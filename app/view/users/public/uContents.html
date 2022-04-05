@@ -1,5 +1,15 @@
 <h2 class="page-box-title">{{__('lc_myDocument')}}</h2>
 <div class="page-box-content" ms-controller="my-contents">
+    <div class="form-inline">
+        <select id="selectState"
+                class="form-control"
+                ms-on-change="@selectStateOnChange">
+            <option ms-for="el in @postOptions" ms-attr="{value:el.value}" ms-text="el.label"></option>
+        </select>
+        <input  class="form-control search-input" style="margin-left:10px" ms-duplex="@searchkey"
+                ms-on-keyup="@onKeyUp" placeholder="请输入关键词" type="text" />
+        <button style="margin-left:10px" class="btn btn-primary" ms-on-click="@searchClick" >搜索</button>
+    </div>
     <div :if="@myContentList.length == 0">
         <div class="no-contents">
             <div class="um-profile-note">
@@ -18,11 +28,11 @@
                     <div class="contentState" >
                         <span style="color:gray;display:inline-block" ms-visible="@el.state == '0'" style="font-weight:normal;">{{__('lc_content_state_draft')}}</span>
                         <span style="color:orange;display:inline-block" ms-visible="@el.state == '1'">{{__('lc_content_state_wait')}}</span>
-                        <span style="color:green;display:inline-block"
+                        <span style="color:orange;display:inline-block"
                               ms-visible="@el.state == '2'">{{__('lc_content_state_publish')}}</span>
-                        <span style="color:green;display:inline-block"
+                        <span style="color:orange;display:inline-block"
                               ms-visible="@el.state == '4'">{{__('lc_content_state_audit_success')}}</span>
-                        <span style="color:green;display:inline-block"
+                        <span style="color:orange;display:inline-block"
                               ms-visible="@el.state == '5'">{{__('lc_content_state_offline')}}</span>
                         <span style="color:red;display:inline-block" ms-visible="@el.state == '3'">{{__('lc_content_state_failed')}}</span>
                         <div class="btn-group" style="display:inline-block;margin-left:30px">
@@ -30,11 +40,12 @@
                                 操作<span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a  target="_blank" ms-attr="{href:'/users/editContent/'+ @el._id}">编辑</a></li>
-                                <li><a href="#">预览</a></li>
-                                <li><a href="#">撤回</a></li>
-                                <li><a href="#">发布</a></li>
-                                <li><a href="#">下架</a></li>
+                                <li><a  target="_blank" ms-visible="@el.state == '0' || @el.state == '3' || @el.state == '5' " ms-attr="{href:'/users/editContent/'+ @el._id}">编辑</a></li>
+                                <li><a href="javascript:void(0)" ms-visible="@el.state == '0'" ms-on-click="@transferContentState(el,1)">提交审核</a></li>
+                                <li><a href="javascript:void(0)" ms-visible="@el.state == '1'" ms-on-click="@transferContentState(el,0)">撤回</a></li>
+                                <li><a href="javascript:void(0)" ms-visible="@el.state == '4' ||@el.state == '5' " ms-on-click="@transferContentState(el,2)" >发布</a></li>
+                                <li><a href="javascript:void(0)" ms-visible="@el.state == '2'" ms-on-click="@transferContentState(el,5)">下架</a></li>
+                                <li><a href="javascript:void(0)" ms-visible="@el.state == '3'" ms-on-click="@showReason(el)">查看原因</a></li>
                             </ul>
                         </div>
                     </div>
@@ -66,9 +77,11 @@
 </div>
 <script>
      var actions = [];
-    // 获取用户投稿列表
+       // 获取用户投稿列表
     getUserRelevantList('/content/getUserContents', 'myContents', 1, {
         userId: $('#userId').val(),
         listState: 'all'
     });
+
+
 </script>

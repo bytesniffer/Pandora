@@ -3,6 +3,14 @@
   <input type="hidden" value="{{logined}}" id="logined">
   <input type="hidden" value="{{tokenId}}" id="tokenId">
   <div class="logo-section box">
+    <div class="user-center" style="margin-left:20px">
+      {% if logined %}
+      您好, {{userInfo.userName}} &nbsp;<a href="/users/userCenter">用户中心 | </a>&nbsp;<a href="#" id="userLoginOut">{{__('lc_loginOut')}}</a>
+      {% else %}
+      您可以<a href="/users/login"
+            target="_blank"> 登录 </a>&nbsp;或<a href="/users/reg" target="_blank"> 注册 </a>
+      {% endif %}
+    </div>
     <div class="search">
       <!-- <form action="/e/search/index.php" method="post" name="searchform" id="searchform"> -->
       <input name="keyboard" class="input_text" style="color: rgb(153, 153, 153);" ms-on-keyup="@onKeyUp"
@@ -13,13 +21,13 @@
       <input name="Submit" class="input_submit" value="搜索" type="submit" ms-click="@searchOpt">
       <!-- </form> -->
     </div>
+
     <div class="logo"><a href="/"><img src="{{site.logo}}"></a> </div>
   </div>
   <div class="clear"></div>
   <div class="topnav">
     <h2>{{site.configs.siteName}}</h2>
     <nav>
-
       <ul id="starlist">
         <li><a href="/">网站首页</a></li>
         {% navtree 'default' %}

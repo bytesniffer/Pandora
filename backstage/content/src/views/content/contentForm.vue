@@ -318,6 +318,7 @@ import {
   getOneContent,
   addContent,
   updateContent,
+  transferContentState,
   getRandomContentImg,
   regUserList,
   coverList,
@@ -772,7 +773,7 @@ export default {
             }
             // 更新
             if (this.formState.edit) {
-              updateContent(params).then(result => {
+                transferContentState(params).then(result => {
                 if (result.status === 200) {
                   this.$router.push(this.$root.adminBasePath + '/content');
                   this.$store.dispatch('content/getContentList');
