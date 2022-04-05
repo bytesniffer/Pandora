@@ -773,7 +773,7 @@ export default {
             }
             // 更新
             if (this.formState.edit) {
-                transferContentState(params).then(result => {
+                updateContent(params).then(result => {
                 if (result.status === 200) {
                   this.$router.push(this.$root.adminBasePath + '/content');
                   this.$store.dispatch('content/getContentList');
